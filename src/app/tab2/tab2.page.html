@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Radios
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Equipamiento</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-item>
+    <ion-select [(ngModel)]="name" (ionChange)="updateArray()" placeholder="Nombre">
+      <ion-select-option value="">All</ion-select-option>
+      <ion-select-option *ngFor="let radioset of radiosetsTotal" [value]="radioset.name">{{radioset.name}}</ion-select-option>
+    </ion-select>
+    </ion-item>
+  <ion-item>
+    <ion-select [(ngModel)]="brand" (ionChange)="updateArray()" placeholder="Marca">
+      <ion-select-option value="">All</ion-select-option>
+      <ion-select-option *ngFor="let radioset of radiosetsTotal" [value]="radioset.brand">{{radioset.brand}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-select [(ngModel)]="type" (ionChange)="updateArray()" placeholder="Tipo">
+      <ion-select-option value="">All</ion-select-option>
+      <ion-select-option *ngFor="let radioset of radiosetsTotal" [value]="radioset.type">{{radioset.type}}</ion-select-option>
+    </ion-select></ion-item>
+      <ion-item>
+        <ion-select [(ngModel)]="amplitude" (ionChange)="updateArray()"  placeholder="Amplitud">
+          <ion-select-option value="">All</ion-select-option>
+          <ion-select-option *ngFor="let radioset of radiosetsTotal" [value]="radioset.amplitude">{{radioset.amplitude}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+           <app-radiosetitem [equipment]="radiosetsVisible" [favouriteRadioSet]="favouriteRadioSet" [isadmin]="isadmin"></app-radiosetitem>
+        <ion-button (click)="presentModal()">Add new</ion-button>
+        <ion-button (click)="presentCalculator()">Price calculator</ion-button>
+</ion-content>
