@@ -178,8 +178,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../user */ "5uJF");
 /* harmony import */ var _firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../firebase-obtainer.service */ "jmhE");
-/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/fire/storage */ "Vaw3");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ "jhN1");
+/* harmony import */ var _node_modules_angular_fire_database__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../node_modules/@angular/fire/database */ "sSZD");
+/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/fire/storage */ "Vaw3");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser */ "jhN1");
+
 
 
 
@@ -189,8 +191,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let Tab5Page = class Tab5Page {
-    constructor(firebaseObtainerService, storage, sanitizer) {
+    constructor(firebaseObtainerService, afDatabase, storage, sanitizer) {
         this.firebaseObtainerService = firebaseObtainerService;
+        this.afDatabase = afDatabase;
         this.storage = storage;
         this.sanitizer = sanitizer;
         this.usersTotal = [];
@@ -201,7 +204,7 @@ let Tab5Page = class Tab5Page {
         this.user = new _user__WEBPACK_IMPORTED_MODULE_4__["User"]("Spain", "440mhz", "mygreatcat", "offline", false);
         this.filterusers = function (user) {
             console.log(this.frequency);
-            if ((this.transmitting === undefined || user.transmitting === this.transmitting) && (this.status === "" || user.status === this.status) && (this.country === "" || user.country === this.country) && (this.frequency === "" || user.preferredFrequency === this.frequency)) {
+            if ((this.status === "" || user.status === this.status) && (this.country === "" || user.country === this.country) && (this.frequency === "" || user.preferredFrequency === this.frequency) && (this.transmitting === "" || user.transmitting === (this.transmitting === "true" ? true : false))) {
                 return true;
             }
             else {
@@ -214,6 +217,23 @@ let Tab5Page = class Tab5Page {
         this.usersVisible = this.usersTotal;
         this.usersVisible = this.usersTotal;
         this.allUsers = this.firebaseObtainerService.listAllUsers();
+        this.afDatabase.database.ref("users").on("child_changed", function (childsnapshot) {
+            const child = childsnapshot.val();
+            this.usersVisible.forEach(user => {
+                if (child.id === user.id) {
+                    user.username = child.username;
+                    user.country = child.country;
+                    user.callsign = child.callsign;
+                    user.favouriteAntenna = child.favouriteAntenna.substr(child.favouriteAntenna.indexOf(' '), child.favouriteAntenna.length);
+                    ;
+                    user.favouriteRadioSet = child.favouriteRadioSet.substr(child.favouriteRadioSet.indexOf(' '), child.favouriteRadioSet.length);
+                    user.preferredFrequency = child.preferredFrequency;
+                    user.transmitting = child.transmitting;
+                    user.transmittingFrequency = child.transmittingFrequency;
+                    user.status = child.status;
+                }
+            });
+        }, () => { console.log("error here"); }, this);
         this.allUsers.then(m => {
             m.forEach(user => {
                 const thisuser = user.val();
@@ -246,8 +266,9 @@ let Tab5Page = class Tab5Page {
 };
 Tab5Page.ctorParameters = () => [
     { type: _firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_5__["FirebaseObtainerService"] },
-    { type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_6__["AngularFireStorage"] },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["ɵDomSanitizerImpl"] }
+    { type: _node_modules_angular_fire_database__WEBPACK_IMPORTED_MODULE_6__["AngularFireDatabase"] },
+    { type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_7__["AngularFireStorage"] },
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["ɵDomSanitizerImpl"] }
 ];
 Tab5Page = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -270,7 +291,7 @@ Tab5Page = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Usuarios</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Usuarios</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-item>\n    <ion-select [(ngModel)]=\"country\" (ionChange)=\"updateArray()\" placeholder=\"País\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let user of usersTotal\" [value]=\"user.country\">{{user.country}}</ion-select-option>\n    </ion-select>\n    </ion-item>\n  <ion-item>\n    <ion-select [(ngModel)]=\"frequency\" (ionChange)=\"updateArray()\" placeholder=\"Frecuencia\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let user of usersTotal\" [value]=\"user.preferredFrequency\">{{user.preferredFrequency}}</ion-select-option>\n    </ion-select>\n  </ion-item>\n  <ion-item>\n    <ion-select [(ngModel)]=\"status\" (ionChange)=\"updateArray()\" placeholder=\"Online\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option value=\"online\">Online</ion-select-option>\n      <ion-select-option value=\"offline\">Offline</ion-select-option>\n      <ion-select-option value=\"dont\">Don't disturb</ion-select-option>\n    </ion-select></ion-item>\n      <ion-item>\n        <ion-select [(ngModel)]=\"transmitting\" (ionChange)=\"updateArray()\" placeholder=\"Emitiendo\">\n          <ion-select-option value=\"true\">True</ion-select-option>\n          <ion-select-option value=\"false\">False</ion-select-option>\n        </ion-select></ion-item>\n          <app-useritem [users]=\"usersVisible\"></app-useritem>\n        \n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Usuarios</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Usuarios</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-item>\n    <ion-select [(ngModel)]=\"country\" (ionChange)=\"updateArray()\" placeholder=\"País\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let user of usersTotal\" [value]=\"user.country\">{{user.country}}</ion-select-option>\n    </ion-select>\n    </ion-item>\n  <ion-item>\n    <ion-select [(ngModel)]=\"frequency\" (ionChange)=\"updateArray()\" placeholder=\"Frecuencia\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let user of usersTotal\" [value]=\"user.preferredFrequency\">{{user.preferredFrequency}}</ion-select-option>\n    </ion-select>\n  </ion-item>\n  <ion-item>\n    <ion-select [(ngModel)]=\"status\" (ionChange)=\"updateArray()\" placeholder=\"Online\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option value=\"online\">Online</ion-select-option>\n      <ion-select-option value=\"offline\">Offline</ion-select-option>\n      <ion-select-option value=\"dont\">Don't disturb</ion-select-option>\n    </ion-select></ion-item>\n      <ion-item>\n        <ion-select [(ngModel)]=\"transmitting\" (ionChange)=\"updateArray()\" placeholder=\"Emitiendo\">\n          <ion-select-option value=\"\">All</ion-select-option>\n          <ion-select-option value=\"true\">True</ion-select-option>\n          <ion-select-option value=\"false\">False</ion-select-option>\n        </ion-select></ion-item>\n          <app-useritem [users]=\"usersVisible\"></app-useritem>\n        \n</ion-content>\n");
 
 /***/ })
 

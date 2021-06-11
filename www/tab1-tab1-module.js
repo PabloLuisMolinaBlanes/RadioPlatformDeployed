@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-title>\n      Antenas\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Antenas</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-item>\n    <ion-select [(ngModel)]=\"name\" (ionChange)=\"updateArray()\" placeholder=\"Nombre\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let antenna of antennaeTotal\" [value]=\"antenna.name\">{{antenna.name}}</ion-select-option>\n    </ion-select></ion-item>\n  <ion-item>\n    <ion-select placeholder=\"Marca\" [(ngModel)]=\"brand\" (ionChange)=\"updateArray()\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let antenna of antennaeTotal\" [value]=\"antenna.brand\">{{antenna.brand}}</ion-select-option>\n    </ion-select>\n  </ion-item>\n  <ion-item>\n    <ion-select placeholder=\"Tipo\" [(ngModel)]=\"type\" (ionChange)=\"updateArray()\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let antenna of antennaeTotal\" [value]=\"antenna.type\">{{antenna.type}}</ion-select-option>\n    </ion-select></ion-item>\n    <ion-item>\n        <ion-select placeholder=\"Altura\" [(ngModel)]=\"height\" (ionChange)=\"updateArray()\">\n          <ion-select-option value=\"\">All</ion-select-option>\n          <ion-select-option *ngFor=\"let antenna of antennaeTotal\" [value]=\"antenna.height\">{{antenna.height}}</ion-select-option>\n        </ion-select>\n    </ion-item>\n      <app-antennaitem [antennae]=\"antennaeVisible\" [favouriteAntenna]=\"favouriteAntenna\" [isadmin]=\"isadmin\"></app-antennaitem>\n    <ion-button (click)=\"presentModal()\">Add new</ion-button>\n    <ion-button (click)=\"presentCalculator()\">Price calculator</ion-button>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-title>\n      Antenas\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Antenas</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-item>\n    <ion-select [(ngModel)]=\"name\" (ionChange)=\"updateArray()\" placeholder=\"Nombre\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let antenna of antennaeTotal\" [value]=\"antenna.name\">{{antenna.name}}\n      </ion-select-option>\n    </ion-select>\n  </ion-item>\n  <ion-item>\n    <ion-select placeholder=\"Marca\" [(ngModel)]=\"brand\" (ionChange)=\"updateArray()\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let antenna of antennaeTotal\" [value]=\"antenna.brand\">{{antenna.brand}}\n      </ion-select-option>\n    </ion-select>\n  </ion-item>\n  <ion-item>\n    <ion-select placeholder=\"Tipo\" [(ngModel)]=\"type\" (ionChange)=\"updateArray()\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let antenna of antennaeTotal\" [value]=\"antenna.type\">{{antenna.type}}\n      </ion-select-option>\n    </ion-select>\n  </ion-item>\n  <ion-item>\n    <ion-select placeholder=\"Altura\" [(ngModel)]=\"height\" (ionChange)=\"updateArray()\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let antenna of antennaeTotal\" [value]=\"antenna.height\">{{antenna.height}}\n      </ion-select-option>\n    </ion-select>\n  </ion-item>\n  <app-antennaitem [antennae]=\"antennaeVisible\" [favouriteAntenna]=\"favouriteAntenna\" [isadmin]=\"isadmin\">\n  </app-antennaitem>\n  <ion-button *ngIf=\"name === '' && brand === '' && type === '' && height === ''\" (click)=\"presentModal()\">Add new</ion-button>\n  <ion-button (click)=\"presentCalculator()\">Price calculator</ion-button>\n</ion-content>");
 
 /***/ }),
 
@@ -94,7 +94,19 @@ let Tab1Page = class Tab1Page {
                             ant.id = child.id;
                         }
                     });
-                    this.antennaeTotal = this.antennaeVisible;
+                    this.antennaeTotal.forEach(ant => {
+                        if (child.id === ant.id || ant.id === "placeholder") {
+                            console.log(ant);
+                            console.log("found antenna");
+                            ant.name = child.name;
+                            ant.type = child.type;
+                            ant.height = child.height;
+                            ant.brand = child.brand;
+                            ant.range = child.range;
+                            ant.price = child.price;
+                            ant.id = child.id;
+                        }
+                    });
                     this.storage.set('antennae', this.antennaeTotal);
                 }, () => { console.log("error here"); }, this);
                 this.afDatabase.database.ref("users/" + user.uid + "/antennae").on("child_removed", function (childsnapshot) {
@@ -106,7 +118,12 @@ let Tab1Page = class Tab1Page {
                             this.antennaeVisible = this.antennaeVisible.filter(antenna => antenna !== ant);
                         }
                     });
-                    this.antennaeTotal = this.antennaeVisible;
+                    this.antennaeTotal.forEach(ant => {
+                        if (child.id === ant.id) {
+                            console.log("found deleted");
+                            this.antennaeTotal = this.antennaeTotal.filter(antenna => antenna !== ant);
+                        }
+                    });
                     this.storage.set('antennae', this.antennaeTotal);
                 }, () => { console.log("error here"); }, this);
                 this.afDatabase.database.ref("users/" + user.uid + "/favouriteAntenna").on("value", function (childsnapshot) {

@@ -92,7 +92,18 @@ let Tab2Page = class Tab2Page {
                             ant.id = child.id;
                         }
                     });
-                    this.radiosetsTotal = this.radiosetsVisible;
+                    this.radiosetsTotal.forEach(ant => {
+                        console.log(ant);
+                        if (child.id === ant.id || ant.id === "placeholder") {
+                            console.log("found radioset");
+                            ant.name = child.name;
+                            ant.type = child.type;
+                            ant.brand = child.brand;
+                            ant.amplitude = child.amplitude;
+                            ant.price = child.price;
+                            ant.id = child.id;
+                        }
+                    });
                     this.storage.set('antennae', this.radiosetsTotal);
                 }, () => { console.log("error here"); }, this);
                 this.afDatabase.database.ref("users/" + user.uid + "/equipment").on("child_removed", function (childsnapshot) {
@@ -104,7 +115,12 @@ let Tab2Page = class Tab2Page {
                             this.radiosetsVisible = this.radiosetsVisible.filter(antenna => antenna !== ant);
                         }
                     });
-                    this.radiosetsTotal = this.radiosetsVisible;
+                    this.radiosetsTotal.forEach(ant => {
+                        if (child.id === ant.id) {
+                            console.log("found deleted radioset");
+                            this.radiosetsTotal = this.radiosetsTotal.filter(antenna => antenna !== ant);
+                        }
+                    });
                     this.storage.set('antennae', this.radiosetsTotal);
                 }, () => { console.log("error here"); }, this);
                 this.afDatabase.database.ref("users/" + user.uid + "/favouriteRadioSet").on("value", function (childsnapshot) {
@@ -249,7 +265,7 @@ Tab2PageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-title>\n      Radios\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Equipamiento</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-item>\n    <ion-select [(ngModel)]=\"name\" (ionChange)=\"updateArray()\" placeholder=\"Nombre\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let radioset of radiosetsTotal\" [value]=\"radioset.name\">{{radioset.name}}</ion-select-option>\n    </ion-select>\n    </ion-item>\n  <ion-item>\n    <ion-select [(ngModel)]=\"brand\" (ionChange)=\"updateArray()\" placeholder=\"Marca\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let radioset of radiosetsTotal\" [value]=\"radioset.brand\">{{radioset.brand}}</ion-select-option>\n    </ion-select>\n  </ion-item>\n  <ion-item>\n    <ion-select [(ngModel)]=\"type\" (ionChange)=\"updateArray()\" placeholder=\"Tipo\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let radioset of radiosetsTotal\" [value]=\"radioset.type\">{{radioset.type}}</ion-select-option>\n    </ion-select></ion-item>\n      <ion-item>\n        <ion-select [(ngModel)]=\"amplitude\" (ionChange)=\"updateArray()\"  placeholder=\"Amplitud\">\n          <ion-select-option value=\"\">All</ion-select-option>\n          <ion-select-option *ngFor=\"let radioset of radiosetsTotal\" [value]=\"radioset.amplitude\">{{radioset.amplitude}}</ion-select-option>\n          </ion-select>\n        </ion-item>\n           <app-radiosetitem [equipment]=\"radiosetsVisible\" [favouriteRadioSet]=\"favouriteRadioSet\" [isadmin]=\"isadmin\"></app-radiosetitem>\n        <ion-button (click)=\"presentModal()\">Add new</ion-button>\n        <ion-button (click)=\"presentCalculator()\">Price calculator</ion-button>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-title>\n      Radios\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Equipamiento</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-item>\n    <ion-select [(ngModel)]=\"name\" (ionChange)=\"updateArray()\" placeholder=\"Nombre\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let radioset of radiosetsTotal\" [value]=\"radioset.name\">{{radioset.name}}\n      </ion-select-option>\n    </ion-select>\n  </ion-item>\n  <ion-item>\n    <ion-select [(ngModel)]=\"brand\" (ionChange)=\"updateArray()\" placeholder=\"Marca\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let radioset of radiosetsTotal\" [value]=\"radioset.brand\">{{radioset.brand}}\n      </ion-select-option>\n    </ion-select>\n  </ion-item>\n  <ion-item>\n    <ion-select [(ngModel)]=\"type\" (ionChange)=\"updateArray()\" placeholder=\"Tipo\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let radioset of radiosetsTotal\" [value]=\"radioset.type\">{{radioset.type}}\n      </ion-select-option>\n    </ion-select>\n  </ion-item>\n  <ion-item>\n    <ion-select [(ngModel)]=\"amplitude\" (ionChange)=\"updateArray()\" placeholder=\"Amplitud\">\n      <ion-select-option value=\"\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let radioset of radiosetsTotal\" [value]=\"radioset.amplitude\">{{radioset.amplitude}}\n      </ion-select-option>\n    </ion-select>\n  </ion-item>\n  <app-radiosetitem [equipment]=\"radiosetsVisible\" [favouriteRadioSet]=\"favouriteRadioSet\" [isadmin]=\"isadmin\">\n  </app-radiosetitem>\n  <ion-button (click)=\"presentModal()\" *ngIf=\"name === '' && brand === '' && type === '' && amplitude === ''\">Add new</ion-button>\n  <ion-button (click)=\"presentCalculator()\">Price calculator</ion-button>\n</ion-content>");
 
 /***/ })
 

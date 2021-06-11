@@ -57,8 +57,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tab4_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tab4.page.scss */ "vacZ");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../node_modules/@angular/fire/auth */ "UbJi");
-/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! socket.io-client */ "jifJ");
-/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! socket.io-client */ "jifJ");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -66,15 +68,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let Tab4Page = class Tab4Page {
-    constructor(afauth) {
+    constructor(afauth, alertCtrl) {
         this.afauth = afauth;
+        this.alertCtrl = alertCtrl;
         this.messages = [];
+        this.blockedusers = [];
     }
     ngOnInit() {
-        this.socketio = socket_io_client__WEBPACK_IMPORTED_MODULE_5__["io"]("https://radioplatforminfrastructure.herokuapp.com/");
+        this.socketio = socket_io_client__WEBPACK_IMPORTED_MODULE_6__["io"]("https://radioplatforminfrastructure.herokuapp.com/");
         this.socketio.connect();
         this.socketio.on('newmessage', (data, username, blocked) => {
-            if (blocked === false) {
+            if (blocked === false && this.blockedusers.findIndex(usernames => username === usernames) === -1) {
+                console.log(this.blockedusers);
                 this.messages.push(data);
             }
             else if (blocked === true && this.user.email === username) {
@@ -91,7 +96,57 @@ let Tab4Page = class Tab4Page {
         this.afauth.currentUser.then(user => {
             if (user != null) {
                 this.user = user;
+                this.socketio.on('addthis', (data) => {
+                    console.log("detected sending of blocked");
+                    console.log(this.user.email);
+                    console.log(data);
+                    if (data['' + this.user.email] !== undefined) {
+                        this.blockedusers = data['' + this.user.email];
+                    }
+                    console.log(this.blockedusers);
+                });
             }
+        });
+    }
+    presentBlockConfirmation(message) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            let alert = this.alertCtrl.create({
+                message: 'Are you sure you want to block this user: ' + message.substr(0, message.search(":")) + '?',
+                buttons: [{
+                        text: 'Cancel',
+                        role: 'cancel'
+                    },
+                    {
+                        text: 'Block',
+                        handler: () => {
+                            this.socketio.emit('blockthis', this.user.email, message.substr(0, message.search(":")));
+                            this.blockedusers.push(message.substr(0, message.search(":")));
+                        }
+                    }
+                ]
+            });
+            (yield alert).present();
+        });
+    }
+    presentUnBlockConfirmation(message) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            let alert = this.alertCtrl.create({
+                message: 'Are you sure you want to unblock this user: ' + message + '?',
+                buttons: [{
+                        text: 'Cancel',
+                        role: 'cancel'
+                    },
+                    {
+                        text: 'Unblock',
+                        handler: () => {
+                            this.socketio.emit('unblockthis', this.user.email, message);
+                            console.log();
+                            this.blockedusers = this.blockedusers.filter(username3 => username3 !== message);
+                        }
+                    }
+                ]
+            });
+            (yield alert).present();
         });
     }
     send() {
@@ -104,7 +159,8 @@ let Tab4Page = class Tab4Page {
     }
 };
 Tab4Page.ctorParameters = () => [
-    { type: _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuth"] }
+    { type: _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuth"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"] }
 ];
 Tab4Page = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -164,7 +220,7 @@ Tab4PageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Chat</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Chat</ion-title>\n    </ion-toolbar>\n  </ion-header>\n<div id=\"chat-container\">\n  <div id=\"chat-window\">\n    <p *ngFor=\"let message of messages\">{{ message }}</p>\n  </div>\n  <ion-input type=\"text\" placeholder=\"Write your message here\" [(ngModel)]=\"message\"></ion-input>  \n</div>\n<ion-button (click)=\"send()\">Send</ion-button>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Chat</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Chat</ion-title>\n    </ion-toolbar>\n  </ion-header>\n<div id=\"chat-container\">\n  <div id=\"chat-window\">\n    <p *ngFor=\"let message of messages\">{{ message }}<ion-button (click)=\"presentBlockConfirmation(message)\" [attr.aria-label]=\"'Block user'\"><ion-icon name=\"close-circle-outline\"></ion-icon></ion-button></p>\n  </div>\n  <ion-input type=\"text\" placeholder=\"Write your message here\" [(ngModel)]=\"message\"></ion-input>  \n</div>\n<ion-button (click)=\"send()\">Send</ion-button>\n<p>Blocked people.</p>\n<p *ngFor=\"let blocked of blockedusers\">{{blocked}}<ion-button (click)=\"presentUnBlockConfirmation(blocked)\" [attr.aria-label]=\"'Unblock user'\"><ion-icon name=\"close-circle-outline\"></ion-icon></ion-button></p>\n</ion-content>\n");
 
 /***/ }),
 
