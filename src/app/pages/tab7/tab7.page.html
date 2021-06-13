@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Administracion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Panel de administracion</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div id="grid">
+    <div id="chat">
+      <div id="chat-window">
+        <p *ngFor="let message of messages">{{ message }}
+          <ion-button (click)="presentBlockDialog(message)" [attr.aria-label]="'Block user'"><ion-icon name="stopwatch"></ion-icon></ion-button>
+          <ion-button (click)="presentDeleteConfirmation(message)" [attr.aria-label]="'Delete message'"><ion-icon name="close-circle-outline"></ion-icon></ion-button>
+        </p>
+      </div>
+      <p>Blocked users:</p>
+      <p *ngFor="let blocked of indefblockedusers | keyvalue">{{blocked.value}}<ion-button (click)="presentUnblockConfirmation(blocked.value)" [attr.aria-label]="'Unblock user'"><ion-icon name="close-circle-outline"></ion-icon></ion-button>
+      </p>
+    </div>
+    <div id="antennacontainer">
+      <p>Antenas</p>
+      <ion-item>
+        <ion-select [(ngModel)]="antennaname" (ionChange)="updateArrayAntenna()" placeholder="Nombre">
+          <ion-select-option value="">All names</ion-select-option>
+          <ion-select-option *ngFor="let antenna of antennanames" [value]="antenna">{{antenna}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-select placeholder="Marca" [(ngModel)]="antennabrand" (ionChange)="updateArrayAntenna()">
+          <ion-select-option value="">All brands</ion-select-option>
+          <ion-select-option *ngFor="let antenna of antennabrands" [value]="antenna">{{antenna}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-select placeholder="Tipo" [(ngModel)]="antennatype" (ionChange)="updateArrayAntenna()">
+          <ion-select-option value="">All types</ion-select-option>
+          <ion-select-option *ngFor="let antenna of antennatypes" [value]="antenna.type">{{antenna}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-select placeholder="Altura" [(ngModel)]="antennaheight" (ionChange)="updateArrayAntenna()">
+          <ion-select-option value="">All heights</ion-select-option>
+          <ion-select-option *ngFor="let antenna of antennaheights" [value]="antenna.height">{{antenna}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <app-antennaitem [antennae]="antennaeVisible" [isadmin]="isadmin"></app-antennaitem>
+      <ion-button *ngIf="antennaname === '' && antennabrand === '' && antennatype === '' && antennaheight === ''" (click)="presentModalAntenna()">Add new</ion-button>
+    </div>
+    <div id="radiocontainer">
+      <p>Radios</p>
+      <ion-item>
+        <ion-select [(ngModel)]="radioname" (ionChange)="updateArrayRadio()" placeholder="Nombre">
+          <ion-select-option value="">All names</ion-select-option>
+          <ion-select-option *ngFor="let radioset of radionames" [value]="radioset">{{radioset}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-select [(ngModel)]="radiobrand" (ionChange)="updateArrayRadio()" placeholder="Marca">
+          <ion-select-option value="">All brands</ion-select-option>
+          <ion-select-option *ngFor="let radioset of radiobrands" [value]="radioset">{{radioset}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-select [(ngModel)]="radiotype" (ionChange)="updateArrayRadio()" placeholder="Tipo">
+          <ion-select-option value="">All types</ion-select-option>
+          <ion-select-option *ngFor="let radioset of radiotypes" [value]="radioset">{{radioset}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-select [(ngModel)]="radioamplitude" (ionChange)="updateArrayRadio()" placeholder="Amplitud">
+          <ion-select-option value="">All amps</ion-select-option>
+          <ion-select-option *ngFor="let radioset of radioamplitudes" [value]="radioset">{{radioset}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <app-radiosetitem [equipment]="radiosetsVisible" [isadmin]="isadmin"></app-radiosetitem>
+      <ion-button *ngIf="radioname === '' && radiobrand === '' && radiotype === '' && radioamplitude === ''" (click)="presentModalRadioSet()">Add new</ion-button>
+    </div>
+  </div>
+
+</ion-content>
