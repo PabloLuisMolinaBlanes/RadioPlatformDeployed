@@ -50,7 +50,7 @@ isadmin: boolean = false;
           this.names.push(child.name);
           this.brands.push(child.brand);
           this.types.push(child.type);
-          this.heights.push(child.amplitude);
+          this.amplitudes.push(child.amplitude);
           this.names = [...new Set(this.names)];
           this.brands = [...new Set(this.brands)];
           this.types = [...new Set(this.types)];
