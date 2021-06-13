@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["tab7-tab7-module"],{
 
-/***/ "IV+q":
-/*!***********************************!*\
-  !*** ./src/app/tab7/tab7.page.ts ***!
-  \***********************************/
+/***/ "2m6g":
+/*!*****************************************!*\
+  !*** ./src/app/pages/tab7/tab7.page.ts ***!
+  \*****************************************/
 /*! exports provided: Tab7Page */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11,17 +11,17 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab7Page", function() { return Tab7Page; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_tab7_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./tab7.page.html */ "bE/L");
-/* harmony import */ var _tab7_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tab7.page.scss */ "hXTM");
+/* harmony import */ var _raw_loader_tab7_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./tab7.page.html */ "pfHd");
+/* harmony import */ var _tab7_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tab7.page.scss */ "E9fJ");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-socket-io */ "7JkF");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! socket.io-client */ "jifJ");
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../node_modules/@angular/fire/auth */ "UbJi");
-/* harmony import */ var _node_modules_angular_fire_database__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../node_modules/@angular/fire/database */ "sSZD");
-/* harmony import */ var _antenna_crudpage_antenna_crudpage_page__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../antenna-crudpage/antenna-crudpage.page */ "9nsz");
-/* harmony import */ var _radio_set_crudpage_radio_set_crudpage_page__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../radio-set-crudpage/radio-set-crudpage.page */ "XIPL");
+/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../node_modules/@angular/fire/auth */ "UbJi");
+/* harmony import */ var _node_modules_angular_fire_database__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../node_modules/@angular/fire/database */ "sSZD");
+/* harmony import */ var _antenna_crudpage_antenna_crudpage_page__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../antenna-crudpage/antenna-crudpage.page */ "PmsL");
+/* harmony import */ var _radio_set_crudpage_radio_set_crudpage_page__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../radio-set-crudpage/radio-set-crudpage.page */ "On2E");
 
 
 
@@ -56,7 +56,14 @@ let Tab7Page = class Tab7Page {
         this.antennabrand = "";
         this.antennatype = "";
         this.antennaheight = "";
-        this.indefblockedusers = [];
+        this.antennanames = [];
+        this.antennabrands = [];
+        this.antennatypes = [];
+        this.antennaheights = [];
+        this.radionames = [];
+        this.radiobrands = [];
+        this.radiotypes = [];
+        this.radioamplitudes = [];
         this.isadmin = true;
         this.filterRadio = function (radioset) {
             if ((this.radioname === "" || radioset.name === this.radioname) && (this.radiobrand === "" || radioset.brand === this.radiobrand) && (this.radiotype === "" || radioset.type === this.radiotype) && (this.radioamplitude === "" || radioset.amplitude === this.radioamplitude)) {
@@ -114,33 +121,34 @@ let Tab7Page = class Tab7Page {
         });
         this.socketio.on('addthisadmin2', (data) => {
             if (Object.keys(data) !== undefined) {
-                this.indefblockedusers.forEach((key, index) => {
+                Object.keys(data).forEach((key, index) => {
                     var ignore = false;
                     if (!(ignore)) {
-                        if (this.indefblockedusers[index].indexOf("(") !== -1) {
-                            key = this.indefblockedusers[index].substr(0, this.indefblockedusers[index].indexOf("(") - 1);
+                        if (this.indefblockedusers[key] !== undefined) {
+                            if (this.indefblockedusers[key].indexOf("(") !== -1) {
+                                key = this.indefblockedusers[key].substr(0, this.indefblockedusers[key].indexOf("(") - 1);
+                            }
                         }
                         if (!(data[key] === 0)) {
-                            if (this.indefblockedusers[index] === undefined) {
-                                this.indefblockedusers.push(key);
+                            if (this.indefblockedusers[key] === undefined) {
+                                this.indefblockedusers[key] = key;
                             }
                             else {
-                                if (this.indefblockedusers[index].indexOf("(") !== -1) {
-                                    this.indefblockedusers[index] = this.indefblockedusers[index].substr(0, this.indefblockedusers[index].indexOf("(") - 1);
+                                if (this.indefblockedusers[key].indexOf("(") !== -1) {
+                                    this.indefblockedusers[key] = this.indefblockedusers[key].substr(0, this.indefblockedusers[key].indexOf("(") - 1);
                                 }
                             }
                         }
                         else {
-                            if (this.indefblockedusers[index] !== undefined) {
-                                if (this.indefblockedusers[index].indexOf("(") === -1) {
-                                    this.indefblockedusers[index] = this.indefblockedusers[index] + " (not blocked anymore)";
+                            if (this.indefblockedusers[key] !== undefined) {
+                                if (this.indefblockedusers[key].indexOf("(") === -1) {
+                                    this.indefblockedusers[key] = this.indefblockedusers[key] + " (not blocked anymore)";
                                 }
                             }
                         }
                     }
                 });
                 console.log(data);
-                console.log(this.indefblockedusers);
             }
         });
         this.socketio.on('addthis', data => {
@@ -149,15 +157,41 @@ let Tab7Page = class Tab7Page {
         this.afDatabase.database.ref("/equipment").on("child_added", function (childsnapshot) {
             this.radiosetsTotal.push(childsnapshot.val());
             this.radiosetsVisible = this.radiosetsTotal;
+            const child = childsnapshot.val();
+            this.radionames.push(child.name);
+            this.radiobrands.push(child.brand);
+            this.radiotypes.push(child.type);
+            this.radioamplitudes.push(child.amplitude);
+            this.radionames = [...new Set(this.radionames)];
+            this.radiobrands = [...new Set(this.radiobrands)];
+            this.radiotypes = [...new Set(this.radiotypes)];
+            this.radioamplitudes = [...new Set(this.radioamplitudes)];
             this.updateArrayRadio();
         }, () => { console.log("error here"); }, this);
         this.afDatabase.database.ref("/antennae").on("child_added", function (childsnapshot) {
             this.antennaeTotal.push(childsnapshot.val());
+            const child = childsnapshot.val();
+            this.antennanames.push(child.name);
+            this.antennabrands.push(child.brand);
+            this.antennatypes.push(child.type);
+            this.antennaheights.push(child.height);
+            this.antennanames = [...new Set(this.antennanames)];
+            this.antennabrands = [...new Set(this.antennabrands)];
+            this.antennatypes = [...new Set(this.antennatypes)];
+            this.antennaheights = [...new Set(this.antennaheights)];
             this.antennaeVisible = this.antennaeTotal;
             this.updateArrayAntenna();
         }, () => { console.log("error here"); }, this);
         this.afDatabase.database.ref("/antennae").on("child_changed", function (childsnapshot) {
             var child = childsnapshot.val();
+            this.antennanames.push(child.name);
+            this.antennabrands.push(child.brand);
+            this.antennatypes.push(child.type);
+            this.antennaheights.push(child.height);
+            this.antennanames = [...new Set(this.antennanames)];
+            this.antennabrands = [...new Set(this.antennabrands)];
+            this.antennatypes = [...new Set(this.antennatypes)];
+            this.antennaheights = [...new Set(this.antennaheights)];
             console.log("detected change");
             console.log(this.antennaeVisible);
             this.antennaeVisible.forEach(ant => {
@@ -207,6 +241,14 @@ let Tab7Page = class Tab7Page {
         }, () => { console.log("error here"); }, this);
         this.afDatabase.database.ref("/equipment").on("child_changed", function (childsnapshot) {
             var child = childsnapshot.val();
+            this.radionames.push(child.name);
+            this.radiobrands.push(child.brand);
+            this.radiotypes.push(child.type);
+            this.radioamplitudes.push(child.amplitude);
+            this.radionames = [...new Set(this.radionames)];
+            this.radiobrands = [...new Set(this.radiobrands)];
+            this.radiotypes = [...new Set(this.radiotypes)];
+            this.radioamplitudes = [...new Set(this.radioamplitudes)];
             console.log("detected change");
             this.radiosetsVisible.forEach(ant => {
                 console.log(ant);
@@ -265,7 +307,7 @@ let Tab7Page = class Tab7Page {
                         handler: () => {
                             console.log("executed");
                             this.socketio.emit('unblock', message);
-                            this.indefblockedusers = this.indefblockedusers.filter(user => user !== message);
+                            delete this.indefblockedusers[message];
                         }
                     }
                 ]
@@ -285,25 +327,36 @@ let Tab7Page = class Tab7Page {
                         text: '5 min',
                         handler: () => {
                             this.socketio.emit('block', message.substr(0, message.search(":")), 300000);
+                            var temparray = Object.entries(this.indefblockedusers);
+                            temparray[message.substr(0, message.search(":"))] = message.substr(0, message.search(":"));
+                            this.indefblockedusers = Object.assign(temparray);
                         }
                     },
                     {
                         text: '10 min',
                         handler: () => {
                             this.socketio.emit('block', message.substr(0, message.search(":")), 600000);
+                            var temparray = Object.entries(this.indefblockedusers);
+                            temparray[message.substr(0, message.search(":"))] = message.substr(0, message.search(":"));
+                            this.indefblockedusers = Object.assign(temparray);
                         }
                     },
                     {
                         text: '15 min',
                         handler: () => {
                             this.socketio.emit('block', message.substr(0, message.search(":")), 900000);
+                            var temparray = Object.entries(this.indefblockedusers);
+                            temparray[message.substr(0, message.search(":"))] = message.substr(0, message.search(":"));
+                            this.indefblockedusers = Object.assign(temparray);
                         }
                     },
                     {
                         text: 'Indefinitely',
                         handler: () => {
                             this.socketio.emit('block', message.substr(0, message.search(":")), -1);
-                            this.indefblockedusers.push(message.substr(0, message.search(":")));
+                            var temparray = Object.entries(this.indefblockedusers);
+                            temparray[message.substr(0, message.search(":"))] = message.substr(0, message.search(":"));
+                            this.indefblockedusers = Object.assign(temparray);
                         }
                     }
                 ]
@@ -381,73 +434,23 @@ Tab7Page = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "bE/L":
-/*!***************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/tab7/tab7.page.html ***!
-  \***************************************************************************/
+/***/ "E9fJ":
+/*!*******************************************!*\
+  !*** ./src/app/pages/tab7/tab7.page.scss ***!
+  \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Administracion</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Panel de administracion</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <div id=\"grid\">\n    <div id=\"chat\">\n      <div id=\"chat-window\">\n        <p *ngFor=\"let message of messages\">{{ message }}\n          <ion-button (click)=\"presentBlockDialog(message)\" [attr.aria-label]=\"'Block user'\"><ion-icon name=\"stopwatch\"></ion-icon></ion-button>\n          <ion-button (click)=\"presentDeleteConfirmation(message)\" [attr.aria-label]=\"'Delete message'\"><ion-icon name=\"close-circle-outline\"></ion-icon></ion-button>\n        </p>\n      </div>\n      <p>Blocked users:</p>\n      <p *ngFor=\"let blocked of indefblockedusers\">{{blocked}}<ion-button (click)=\"presentUnblockConfirmation(blocked)\" [attr.aria-label]=\"'Unblock user'\"><ion-icon name=\"close-circle-outline\"></ion-icon></ion-button>\n      </p>\n    </div>\n    <div id=\"antennacontainer\">\n      <p>Antenas</p>\n      <ion-item>\n        <ion-select [(ngModel)]=\"antennaname\" (ionChange)=\"updateArrayAntenna()\" placeholder=\"Nombre\">\n          <ion-select-option value=\"\">All</ion-select-option>\n          <ion-select-option *ngFor=\"let antenna of antennaeTotal\" [value]=\"antenna.name\">{{antenna.name}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-select placeholder=\"Marca\" [(ngModel)]=\"antennabrand\" (ionChange)=\"updateArrayAntenna()\">\n          <ion-select-option value=\"\">All</ion-select-option>\n          <ion-select-option *ngFor=\"let antenna of antennaeTotal\" [value]=\"antenna.brand\">{{antenna.brand}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-select placeholder=\"Tipo\" [(ngModel)]=\"antennatype\" (ionChange)=\"updateArrayAntenna()\">\n          <ion-select-option value=\"\">All</ion-select-option>\n          <ion-select-option *ngFor=\"let antenna of antennaeTotal\" [value]=\"antenna.type\">{{antenna.type}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-select placeholder=\"Altura\" [(ngModel)]=\"antennaheight\" (ionChange)=\"updateArrayAntenna()\">\n          <ion-select-option value=\"\">All</ion-select-option>\n          <ion-select-option *ngFor=\"let antenna of antennaeTotal\" [value]=\"antenna.height\">{{antenna.height}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <app-antennaitem [antennae]=\"antennaeVisible\" [isadmin]=\"isadmin\"></app-antennaitem>\n      <ion-button *ngIf=\"antennaname === '' && antennabrand === '' && antennatype === '' && antennaheight === ''\" (click)=\"presentModalAntenna()\">Add new</ion-button>\n    </div>\n    <div id=\"radiocontainer\">\n      <p>Radios</p>\n      <ion-item>\n        <ion-select [(ngModel)]=\"radioname\" (ionChange)=\"updateArrayRadio()\" placeholder=\"Nombre\">\n          <ion-select-option value=\"\">All</ion-select-option>\n          <ion-select-option *ngFor=\"let radioset of radiosetsTotal\" [value]=\"radioset.name\">{{radioset.name}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-select [(ngModel)]=\"radiobrand\" (ionChange)=\"updateArrayRadio()\" placeholder=\"Marca\">\n          <ion-select-option value=\"\">All</ion-select-option>\n          <ion-select-option *ngFor=\"let radioset of radiosetsTotal\" [value]=\"radioset.brand\">{{radioset.brand}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-select [(ngModel)]=\"radiotype\" (ionChange)=\"updateArrayRadio()\" placeholder=\"Tipo\">\n          <ion-select-option value=\"\">All</ion-select-option>\n          <ion-select-option *ngFor=\"let radioset of radiosetsTotal\" [value]=\"radioset.type\">{{radioset.type}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-select [(ngModel)]=\"radioamplitude\" (ionChange)=\"updateArrayRadio()\" placeholder=\"Amplitud\">\n          <ion-select-option value=\"\">All</ion-select-option>\n          <ion-select-option *ngFor=\"let radioset of radiosetsTotal\" [value]=\"radioset.amplitude\">{{radioset.amplitude}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <app-radiosetitem [equipment]=\"radiosetsVisible\" [isadmin]=\"isadmin\"></app-radiosetitem>\n      <ion-button *ngIf=\"radioname === '' && radiobrand === '' && radiotype === '' && radioamplitude === ''\" (click)=\"presentModalRadioSet()\">Add new</ion-button>\n    </div>\n  </div>\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("#chat-window {\n  height: 20vw;\n  width: 40vw;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  overflow: scroll;\n}\n\n#grid {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n}\n\n@media (max-width: 1366px) {\n  #grid {\n    grid-template-columns: repeat(1, 1fr);\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFx0YWI3LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFlBQUE7RUFDQSxXQUFBO0VBQ0EsYUFBQTtFQUNBLHNCQUFBO0VBQ0EsdUJBQUE7RUFDQSxnQkFBQTtBQUNKOztBQUNBO0VBQ0ksYUFBQTtFQUNBLHFDQUFBO0FBRUo7O0FBQUE7RUFDSTtJQUNJLHFDQUFBO0VBR047QUFDRiIsImZpbGUiOiJ0YWI3LnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiNjaGF0LXdpbmRvdyB7XHJcbiAgICBoZWlnaHQ6MjB2dztcclxuICAgIHdpZHRoOjQwdnc7XHJcbiAgICBkaXNwbGF5OmZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgYWxpZ24taXRlbXM6ZmxleC1zdGFydDtcclxuICAgIG92ZXJmbG93OnNjcm9sbDtcclxufVxyXG4jZ3JpZCB7XHJcbiAgICBkaXNwbGF5OiBncmlkO1xyXG4gICAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoMiwxZnIpO1xyXG59XHJcbkBtZWRpYSAobWF4LXdpZHRoOiAxMzY2cHgpIHtcclxuICAgICNncmlkIHtcclxuICAgICAgICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCgxLDFmcik7XHJcbiAgICB9XHJcbn0iXX0= */");
 
 /***/ }),
 
-/***/ "hXTM":
-/*!*************************************!*\
-  !*** ./src/app/tab7/tab7.page.scss ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#chat-window {\n  height: 20vw;\n  width: 40vw;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  overflow: scroll;\n}\n\n#grid {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n}\n\n@media (max-width: 1366px) {\n  #grid {\n    grid-template-columns: repeat(1, 1fr);\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXHRhYjcucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBQTtFQUNBLFdBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSx1QkFBQTtFQUNBLGdCQUFBO0FBQ0o7O0FBQ0E7RUFDSSxhQUFBO0VBQ0EscUNBQUE7QUFFSjs7QUFBQTtFQUNJO0lBQ0kscUNBQUE7RUFHTjtBQUNGIiwiZmlsZSI6InRhYjcucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI2NoYXQtd2luZG93IHtcclxuICAgIGhlaWdodDoyMHZ3O1xyXG4gICAgd2lkdGg6NDB2dztcclxuICAgIGRpc3BsYXk6ZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBhbGlnbi1pdGVtczpmbGV4LXN0YXJ0O1xyXG4gICAgb3ZlcmZsb3c6c2Nyb2xsO1xyXG59XHJcbiNncmlkIHtcclxuICAgIGRpc3BsYXk6IGdyaWQ7XHJcbiAgICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCgyLDFmcik7XHJcbn1cclxuQG1lZGlhIChtYXgtd2lkdGg6IDEzNjZweCkge1xyXG4gICAgI2dyaWQge1xyXG4gICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogcmVwZWF0KDEsMWZyKTtcclxuICAgIH1cclxufSJdfQ== */");
-
-/***/ }),
-
-/***/ "nsF6":
-/*!*********************************************!*\
-  !*** ./src/app/tab7/tab7-routing.module.ts ***!
-  \*********************************************/
-/*! exports provided: Tab7PageRoutingModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab7PageRoutingModule", function() { return Tab7PageRoutingModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _tab7_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tab7.page */ "IV+q");
-
-
-
-
-const routes = [
-    {
-        path: '',
-        component: _tab7_page__WEBPACK_IMPORTED_MODULE_3__["Tab7Page"]
-    }
-];
-let Tab7PageRoutingModule = class Tab7PageRoutingModule {
-};
-Tab7PageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
-    })
-], Tab7PageRoutingModule);
-
-
-
-/***/ }),
-
-/***/ "sFF5":
-/*!*************************************!*\
-  !*** ./src/app/tab7/tab7.module.ts ***!
-  \*************************************/
+/***/ "haBL":
+/*!*******************************************!*\
+  !*** ./src/app/pages/tab7/tab7.module.ts ***!
+  \*******************************************/
 /*! exports provided: Tab7PageModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -459,10 +462,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
-/* harmony import */ var _tab7_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tab7-routing.module */ "nsF6");
-/* harmony import */ var _tab7_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tab7.page */ "IV+q");
-/* harmony import */ var _radiosetitem_radiosetitem_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../radiosetitem/radiosetitem.component */ "FvCI");
-/* harmony import */ var _antennaitem_antennaitem_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../antennaitem/antennaitem.component */ "PmDG");
+/* harmony import */ var _tab7_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tab7-routing.module */ "zAUv");
+/* harmony import */ var _tab7_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tab7.page */ "2m6g");
+/* harmony import */ var _components_radiosetitem_radiosetitem_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/radiosetitem/radiosetitem.component */ "a+/E");
+/* harmony import */ var _components_antennaitem_antennaitem_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/antennaitem/antennaitem.component */ "WZ0V");
 
 
 
@@ -482,9 +485,59 @@ Tab7PageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
             _tab7_routing_module__WEBPACK_IMPORTED_MODULE_5__["Tab7PageRoutingModule"]
         ],
-        declarations: [_tab7_page__WEBPACK_IMPORTED_MODULE_6__["Tab7Page"], _radiosetitem_radiosetitem_component__WEBPACK_IMPORTED_MODULE_7__["RadiosetitemComponent"], _antennaitem_antennaitem_component__WEBPACK_IMPORTED_MODULE_8__["AntennaitemComponent"]]
+        declarations: [_tab7_page__WEBPACK_IMPORTED_MODULE_6__["Tab7Page"], _components_radiosetitem_radiosetitem_component__WEBPACK_IMPORTED_MODULE_7__["RadiosetitemComponent"], _components_antennaitem_antennaitem_component__WEBPACK_IMPORTED_MODULE_8__["AntennaitemComponent"]]
     })
 ], Tab7PageModule);
+
+
+
+/***/ }),
+
+/***/ "pfHd":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/tab7/tab7.page.html ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Administracion</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Panel de administracion</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <div id=\"grid\">\n    <div id=\"chat\">\n      <div id=\"chat-window\">\n        <p *ngFor=\"let message of messages\">{{ message }}\n          <ion-button (click)=\"presentBlockDialog(message)\" [attr.aria-label]=\"'Block user'\"><ion-icon name=\"stopwatch\"></ion-icon></ion-button>\n          <ion-button (click)=\"presentDeleteConfirmation(message)\" [attr.aria-label]=\"'Delete message'\"><ion-icon name=\"close-circle-outline\"></ion-icon></ion-button>\n        </p>\n      </div>\n      <p>Blocked users:</p>\n      <p *ngFor=\"let blocked of indefblockedusers | keyvalue\">{{blocked.value}}<ion-button (click)=\"presentUnblockConfirmation(blocked.value)\" [attr.aria-label]=\"'Unblock user'\"><ion-icon name=\"close-circle-outline\"></ion-icon></ion-button>\n      </p>\n    </div>\n    <div id=\"antennacontainer\">\n      <p>Antenas</p>\n      <ion-item>\n        <ion-select [(ngModel)]=\"antennaname\" (ionChange)=\"updateArrayAntenna()\" placeholder=\"Nombre\">\n          <ion-select-option value=\"\">All names</ion-select-option>\n          <ion-select-option *ngFor=\"let antenna of antennanames\" [value]=\"antenna\">{{antenna}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-select placeholder=\"Marca\" [(ngModel)]=\"antennabrand\" (ionChange)=\"updateArrayAntenna()\">\n          <ion-select-option value=\"\">All brands</ion-select-option>\n          <ion-select-option *ngFor=\"let antenna of antennabrands\" [value]=\"antenna\">{{antenna}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-select placeholder=\"Tipo\" [(ngModel)]=\"antennatype\" (ionChange)=\"updateArrayAntenna()\">\n          <ion-select-option value=\"\">All types</ion-select-option>\n          <ion-select-option *ngFor=\"let antenna of antennatypes\" [value]=\"antenna.type\">{{antenna}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-select placeholder=\"Altura\" [(ngModel)]=\"antennaheight\" (ionChange)=\"updateArrayAntenna()\">\n          <ion-select-option value=\"\">All heights</ion-select-option>\n          <ion-select-option *ngFor=\"let antenna of antennaheights\" [value]=\"antenna.height\">{{antenna}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <app-antennaitem [antennae]=\"antennaeVisible\" [isadmin]=\"isadmin\"></app-antennaitem>\n      <ion-button *ngIf=\"antennaname === '' && antennabrand === '' && antennatype === '' && antennaheight === ''\" (click)=\"presentModalAntenna()\">Add new</ion-button>\n    </div>\n    <div id=\"radiocontainer\">\n      <p>Radios</p>\n      <ion-item>\n        <ion-select [(ngModel)]=\"radioname\" (ionChange)=\"updateArrayRadio()\" placeholder=\"Nombre\">\n          <ion-select-option value=\"\">All names</ion-select-option>\n          <ion-select-option *ngFor=\"let radioset of radionames\" [value]=\"radioset\">{{radioset}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-select [(ngModel)]=\"radiobrand\" (ionChange)=\"updateArrayRadio()\" placeholder=\"Marca\">\n          <ion-select-option value=\"\">All brands</ion-select-option>\n          <ion-select-option *ngFor=\"let radioset of radiobrands\" [value]=\"radioset\">{{radioset}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-select [(ngModel)]=\"radiotype\" (ionChange)=\"updateArrayRadio()\" placeholder=\"Tipo\">\n          <ion-select-option value=\"\">All types</ion-select-option>\n          <ion-select-option *ngFor=\"let radioset of radiotypes\" [value]=\"radioset\">{{radioset}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <ion-item>\n        <ion-select [(ngModel)]=\"radioamplitude\" (ionChange)=\"updateArrayRadio()\" placeholder=\"Amplitud\">\n          <ion-select-option value=\"\">All amps</ion-select-option>\n          <ion-select-option *ngFor=\"let radioset of radioamplitudes\" [value]=\"radioset\">{{radioset}}\n          </ion-select-option>\n        </ion-select>\n      </ion-item>\n      <app-radiosetitem [equipment]=\"radiosetsVisible\" [isadmin]=\"isadmin\"></app-radiosetitem>\n      <ion-button *ngIf=\"radioname === '' && radiobrand === '' && radiotype === '' && radioamplitude === ''\" (click)=\"presentModalRadioSet()\">Add new</ion-button>\n    </div>\n  </div>\n\n</ion-content>\n");
+
+/***/ }),
+
+/***/ "zAUv":
+/*!***************************************************!*\
+  !*** ./src/app/pages/tab7/tab7-routing.module.ts ***!
+  \***************************************************/
+/*! exports provided: Tab7PageRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab7PageRoutingModule", function() { return Tab7PageRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _tab7_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tab7.page */ "2m6g");
+
+
+
+
+const routes = [
+    {
+        path: '',
+        component: _tab7_page__WEBPACK_IMPORTED_MODULE_3__["Tab7Page"]
+    }
+];
+let Tab7PageRoutingModule = class Tab7PageRoutingModule {
+};
+Tab7PageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+    })
+], Tab7PageRoutingModule);
 
 
 

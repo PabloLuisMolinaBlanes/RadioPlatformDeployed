@@ -1,9 +1,225 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
-/***/ "+Uwb":
-/*!********************************************************!*\
-  !*** ./src/app/firebase-updater-and-setter.service.ts ***!
-  \********************************************************/
+/***/ 0:
+/*!***************************!*\
+  !*** multi ./src/main.ts ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! C:\Users\Cuentaproyecto\Desktop\RadioPlatform\Proyecto\RadioPlatform\src\main.ts */"zUnb");
+
+
+/***/ }),
+
+/***/ "AytR":
+/*!*****************************************!*\
+  !*** ./src/environments/environment.ts ***!
+  \*****************************************/
+/*! exports provided: environment */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
+// This file can be replaced during build by using the `fileReplacements` array.
+// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+// The list of file replacements can be found in `angular.json`.
+const environment = {
+    production: false,
+    firebase: {
+        apiKey: "AIzaSyAXOiptizkyrxrUERjrUNq7jObWk2ms1oo",
+        authDomain: "radioplatform-9cfc5.firebaseapp.com",
+        projectId: "radioplatform-9cfc5",
+        storageBucket: "radioplatform-9cfc5.appspot.com",
+        messagingSenderId: "750599158248",
+        appId: "1:750599158248:web:16c93c7f3e94324f15cc5d",
+        measurementId: "G-Y6PS54Y43W"
+    }
+};
+/*
+ * For easier debugging in development mode, you can import the following file
+ * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
+ *
+ * This import should be commented out in production mode because it will have a negative impact
+ * on performance if an error is thrown.
+ */
+// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+
+/***/ }),
+
+/***/ "JQOl":
+/*!*******************************************************!*\
+  !*** ./src/app/services/firebase-obtainer.service.ts ***!
+  \*******************************************************/
+/*! exports provided: FirebaseObtainerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirebaseObtainerService", function() { return FirebaseObtainerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _node_modules_angular_fire_database__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/@angular/fire/database */ "sSZD");
+/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/@angular/fire/auth */ "UbJi");
+
+
+
+
+let FirebaseObtainerService = class FirebaseObtainerService {
+    constructor(afDatabase, auth) {
+        this.afDatabase = afDatabase;
+        this.auth = auth;
+    }
+    listAllAntennas() {
+        return this.afDatabase.database.ref("antennae").get();
+    }
+    listAllRadioSets() {
+        return this.afDatabase.database.ref("equipment").get();
+    }
+    listAllUsers() {
+        return this.afDatabase.database.ref("users").get();
+    }
+    listAllContacts(userid) {
+        return this.afDatabase.database.ref('/users/' + userid + '/contacts').get();
+    }
+    listMyself(userid) {
+        return this.afDatabase.database.ref('/users/' + userid).get();
+    }
+    listAllUserAntennas(userid) {
+        return this.afDatabase.database.ref('/users/' + userid + "/antennae").get();
+    }
+    listAllUserRadioSets(userid) {
+        return this.afDatabase.database.ref('/users/' + userid + "/equipment").get();
+    }
+};
+FirebaseObtainerService.ctorParameters = () => [
+    { type: _node_modules_angular_fire_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"] },
+    { type: _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"] }
+];
+FirebaseObtainerService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], FirebaseObtainerService);
+
+
+
+/***/ }),
+
+/***/ "Sy1n":
+/*!**********************************!*\
+  !*** ./src/app/app.component.ts ***!
+  \**********************************/
+/*! exports provided: AppComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _raw_loader_app_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./app.component.html */ "VzVu");
+/* harmony import */ var _app_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component.scss */ "ynWL");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+
+
+let AppComponent = class AppComponent {
+    constructor() { }
+};
+AppComponent.ctorParameters = () => [];
+AppComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: 'app-root',
+        template: _raw_loader_app_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        styles: [_app_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
+    })
+], AppComponent);
+
+
+
+/***/ }),
+
+/***/ "VzVu":
+/*!**************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n");
+
+/***/ }),
+
+/***/ "ZAI4":
+/*!*******************************!*\
+  !*** ./src/app/app.module.ts ***!
+  \*******************************/
+/*! exports provided: AppModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "jhN1");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire */ "spgP");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire/auth */ "UbJi");
+/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/fire/storage */ "Vaw3");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../environments/environment */ "AytR");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-socket-io */ "7JkF");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing.module */ "vY5A");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.component */ "Sy1n");
+/* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/fire/database */ "sSZD");
+/* harmony import */ var _services_firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/firebase-updater-and-setter.service */ "hsKi");
+/* harmony import */ var _services_firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/firebase-obtainer.service */ "JQOl");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _ionic_storage_angular__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic/storage-angular */ "jSNZ");
+
+
+
+
+
+
+
+
+
+
+const config = { url: 'http://radioplatforminfrastructure.herokuapp.com/', options: {} };
+
+
+
+
+
+
+
+let AppModule = class AppModule {
+};
+AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]],
+        entryComponents: [],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_9__["SocketIoModule"].forRoot(config), _angular_fire__WEBPACK_IMPORTED_MODULE_4__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].firebase), _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuthModule"], _angular_fire_database__WEBPACK_IMPORTED_MODULE_12__["AngularFireDatabaseModule"], _angular_fire_storage__WEBPACK_IMPORTED_MODULE_6__["AngularFireStorageModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_15__["HttpClientModule"], _ionic_storage_angular__WEBPACK_IMPORTED_MODULE_16__["IonicStorageModule"].forRoot()],
+        providers: [{ provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["IonicRouteStrategy"] }, _services_firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_13__["FirebaseUpdaterAndSetterService"], _services_firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_14__["FirebaseObtainerService"]],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]],
+    })
+], AppModule);
+
+
+
+/***/ }),
+
+/***/ "hsKi":
+/*!*****************************************************************!*\
+  !*** ./src/app/services/firebase-updater-and-setter.service.ts ***!
+  \*****************************************************************/
 /*! exports provided: FirebaseUpdaterAndSetterService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12,8 +228,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirebaseUpdaterAndSetterService", function() { return FirebaseUpdaterAndSetterService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _node_modules_angular_fire_database__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/@angular/fire/database */ "sSZD");
-/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../node_modules/@angular/fire/auth */ "UbJi");
+/* harmony import */ var _node_modules_angular_fire_database__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/@angular/fire/database */ "sSZD");
+/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/@angular/fire/auth */ "UbJi");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 /* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/fire/storage */ "Vaw3");
@@ -507,18 +723,67 @@ let FirebaseUpdaterAndSetterService = class FirebaseUpdaterAndSetterService {
         });
     }
     setUser(user) {
-        if (user.callsign !== null || user.callsign !== undefined) {
-            this.afDatabase.database.ref('callsigns/' + user.callsign).set(user.username).then(c => {
-            });
+        if (user.callsign !== null && user.callsign !== undefined) {
+            this.afDatabase.database.ref('callsigns/' + user.callsign).get().then((result => {
+                if (result !== null) {
+                    if (result.key !== undefined && result.val() !== user.username && result.val() !== null) {
+                        this.alertCtrl.create({
+                            message: "Error, this callsign already exists for another user, please change it in case you want to log in.",
+                            buttons: [{
+                                    text: "OK",
+                                    role: 'ok'
+                                }]
+                        }).then(a => {
+                            a.present();
+                            user.callsign = null;
+                        });
+                    }
+                    else {
+                        this.afDatabase.database.ref('callsigns/' + user.callsign).set(user.username).then(c => {
+                        });
+                    }
+                }
+                else {
+                    this.afDatabase.database.ref('callsigns/' + user.callsign).set(user.username).then(c => { });
+                }
+            }));
         }
         return this.afDatabase.database.ref('users/' + user.id).set(user);
     }
     updateUser(user) {
+        if (user.callsign !== null && user.callsign !== undefined) {
+            this.afDatabase.database.ref('callsigns/' + user.callsign).get().then((result => {
+                console.log(result.val());
+                console.log(user.callsign);
+                if (result !== null) {
+                    if (result.key !== undefined && result.val() !== user.username && result.val() !== null) {
+                        this.alertCtrl.create({
+                            message: "Error, this callsign already exists for another user, please change it in case you want to log in.",
+                            buttons: [{
+                                    text: "OK",
+                                    role: 'ok'
+                                }]
+                        }).then(a => {
+                            a.present();
+                            user.callsign = null;
+                        });
+                    }
+                    else {
+                        this.afDatabase.database.ref('callsigns/' + user.callsign).set(user.username).then(c => {
+                        });
+                    }
+                }
+                else {
+                    this.afDatabase.database.ref('callsigns/' + user.callsign).set(user.username).then(c => { });
+                }
+            }));
+        }
         this.afDatabase.database.ref('users/' + user.id).update({
             'preferredFrequency': user.preferredFrequency,
             'status': user.status,
             'transmitting': user.transmitting,
-            'transmittingFrequency': user.transmittingFrequency
+            'transmittingFrequency': user.transmittingFrequency,
+            'callsign': user.callsign
         });
     }
     updateUserAndPhoto(user) {
@@ -569,222 +834,6 @@ FirebaseUpdaterAndSetterService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
         providedIn: 'root'
     })
 ], FirebaseUpdaterAndSetterService);
-
-
-
-/***/ }),
-
-/***/ 0:
-/*!***************************!*\
-  !*** multi ./src/main.ts ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! C:\Users\Cuentaproyecto\Desktop\RadioPlatform\Proyecto\RadioPlatform\src\main.ts */"zUnb");
-
-
-/***/ }),
-
-/***/ "AytR":
-/*!*****************************************!*\
-  !*** ./src/environments/environment.ts ***!
-  \*****************************************/
-/*! exports provided: environment */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-const environment = {
-    production: false,
-    firebase: {
-        apiKey: "AIzaSyAXOiptizkyrxrUERjrUNq7jObWk2ms1oo",
-        authDomain: "radioplatform-9cfc5.firebaseapp.com",
-        projectId: "radioplatform-9cfc5",
-        storageBucket: "radioplatform-9cfc5.appspot.com",
-        messagingSenderId: "750599158248",
-        appId: "1:750599158248:web:16c93c7f3e94324f15cc5d",
-        measurementId: "G-Y6PS54Y43W"
-    }
-};
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
-
-
-/***/ }),
-
-/***/ "Sy1n":
-/*!**********************************!*\
-  !*** ./src/app/app.component.ts ***!
-  \**********************************/
-/*! exports provided: AppComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_app_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./app.component.html */ "VzVu");
-/* harmony import */ var _app_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component.scss */ "ynWL");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-
-
-
-
-let AppComponent = class AppComponent {
-    constructor() { }
-};
-AppComponent.ctorParameters = () => [];
-AppComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
-        selector: 'app-root',
-        template: _raw_loader_app_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
-        styles: [_app_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
-    })
-], AppComponent);
-
-
-
-/***/ }),
-
-/***/ "VzVu":
-/*!**************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n");
-
-/***/ }),
-
-/***/ "ZAI4":
-/*!*******************************!*\
-  !*** ./src/app/app.module.ts ***!
-  \*******************************/
-/*! exports provided: AppModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "jhN1");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire */ "spgP");
-/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire/auth */ "UbJi");
-/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/fire/storage */ "Vaw3");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../environments/environment */ "AytR");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
-/* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-socket-io */ "7JkF");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing.module */ "vY5A");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.component */ "Sy1n");
-/* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/fire/database */ "sSZD");
-/* harmony import */ var _firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./firebase-updater-and-setter.service */ "+Uwb");
-/* harmony import */ var _firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./firebase-obtainer.service */ "jmhE");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-/* harmony import */ var _ionic_storage_angular__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic/storage-angular */ "jSNZ");
-
-
-
-
-
-
-
-
-
-
-const config = { url: 'http://radioplatforminfrastructure.herokuapp.com/', options: {} };
-
-
-
-
-
-
-
-let AppModule = class AppModule {
-};
-AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]],
-        entryComponents: [],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_9__["SocketIoModule"].forRoot(config), _angular_fire__WEBPACK_IMPORTED_MODULE_4__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].firebase), _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuthModule"], _angular_fire_database__WEBPACK_IMPORTED_MODULE_12__["AngularFireDatabaseModule"], _angular_fire_storage__WEBPACK_IMPORTED_MODULE_6__["AngularFireStorageModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_15__["HttpClientModule"], _ionic_storage_angular__WEBPACK_IMPORTED_MODULE_16__["IonicStorageModule"].forRoot()],
-        providers: [{ provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["IonicRouteStrategy"] }, _firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_13__["FirebaseUpdaterAndSetterService"], _firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_14__["FirebaseObtainerService"]],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]],
-    })
-], AppModule);
-
-
-
-/***/ }),
-
-/***/ "jmhE":
-/*!**********************************************!*\
-  !*** ./src/app/firebase-obtainer.service.ts ***!
-  \**********************************************/
-/*! exports provided: FirebaseObtainerService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirebaseObtainerService", function() { return FirebaseObtainerService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _node_modules_angular_fire_database__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/@angular/fire/database */ "sSZD");
-/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../node_modules/@angular/fire/auth */ "UbJi");
-
-
-
-
-let FirebaseObtainerService = class FirebaseObtainerService {
-    constructor(afDatabase, auth) {
-        this.afDatabase = afDatabase;
-        this.auth = auth;
-    }
-    listAllAntennas() {
-        return this.afDatabase.database.ref("antennae").get();
-    }
-    listAllRadioSets() {
-        return this.afDatabase.database.ref("equipment").get();
-    }
-    listAllUsers() {
-        return this.afDatabase.database.ref("users").get();
-    }
-    listAllContacts(userid) {
-        return this.afDatabase.database.ref('/users/' + userid + '/contacts').get();
-    }
-    listMyself(userid) {
-        return this.afDatabase.database.ref('/users/' + userid).get();
-    }
-    listAllUserAntennas(userid) {
-        return this.afDatabase.database.ref('/users/' + userid + "/antennae").get();
-    }
-    listAllUserRadioSets(userid) {
-        return this.afDatabase.database.ref('/users/' + userid + "/equipment").get();
-    }
-};
-FirebaseObtainerService.ctorParameters = () => [
-    { type: _node_modules_angular_fire_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"] },
-    { type: _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"] }
-];
-FirebaseObtainerService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    })
-], FirebaseObtainerService);
 
 
 
@@ -1047,47 +1096,47 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: '',
-        loadChildren: () => __webpack_require__.e(/*! import() | tabs-tabs-module */ "tabs-tabs-module").then(__webpack_require__.bind(null, /*! ./tabs/tabs.module */ "hO9l")).then(m => m.TabsPageModule)
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-tabs-tabs-module */ "pages-tabs-tabs-module").then(__webpack_require__.bind(null, /*! ./pages/tabs/tabs.module */ "qiIP")).then(m => m.TabsPageModule)
     },
     {
         path: 'tab4',
-        loadChildren: () => __webpack_require__.e(/*! import() | tab4-tab4-module */ "tab4-tab4-module").then(__webpack_require__.bind(null, /*! ./tab4/tab4.module */ "1GDv")).then(m => m.Tab4PageModule)
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-tab4-tab4-module */ "tab4-tab4-module").then(__webpack_require__.bind(null, /*! ./pages/tab4/tab4.module */ "GXrT")).then(m => m.Tab4PageModule)
     },
     {
         path: 'tab5',
-        loadChildren: () => Promise.all(/*! import() | tab5-tab5-module */[__webpack_require__.e("common"), __webpack_require__.e("tab5-tab5-module")]).then(__webpack_require__.bind(null, /*! ./tab5/tab5.module */ "Sa0/")).then(m => m.Tab5PageModule)
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-tab5-tab5-module */ "tab5-tab5-module").then(__webpack_require__.bind(null, /*! ./pages/tab5/tab5.module */ "NJt5")).then(m => m.Tab5PageModule)
     },
     {
         path: 'tab6',
-        loadChildren: () => Promise.all(/*! import() | tab6-tab6-module */[__webpack_require__.e("common"), __webpack_require__.e("tab6-tab6-module")]).then(__webpack_require__.bind(null, /*! ./tab6/tab6.module */ "ufJr")).then(m => m.Tab6PageModule)
+        loadChildren: () => Promise.all(/*! import() | pages-tab6-tab6-module */[__webpack_require__.e("common"), __webpack_require__.e("tab6-tab6-module")]).then(__webpack_require__.bind(null, /*! ./pages/tab6/tab6.module */ "5wSo")).then(m => m.Tab6PageModule)
     },
     {
         path: 'login',
-        loadChildren: () => __webpack_require__.e(/*! import() | login-login-module */ "login-login-module").then(__webpack_require__.bind(null, /*! ./login/login.module */ "X3zk")).then(m => m.LoginPageModule)
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-login-login-module */ "pages-login-login-module").then(__webpack_require__.bind(null, /*! ./pages/login/login.module */ "F4UR")).then(m => m.LoginPageModule)
     },
     {
         path: 'register',
-        loadChildren: () => Promise.all(/*! import() | register-register-module */[__webpack_require__.e("common"), __webpack_require__.e("register-register-module")]).then(__webpack_require__.bind(null, /*! ./register/register.module */ "x5bZ")).then(m => m.RegisterPageModule)
+        loadChildren: () => Promise.all(/*! import() | pages-register-register-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-register-register-module")]).then(__webpack_require__.bind(null, /*! ./pages/register/register.module */ "fhSy")).then(m => m.RegisterPageModule)
     },
     {
         path: 'antenna-crudpage',
-        loadChildren: () => __webpack_require__.e(/*! import() | antenna-crudpage-antenna-crudpage-module */ "antenna-crudpage-antenna-crudpage-module").then(__webpack_require__.bind(null, /*! ./antenna-crudpage/antenna-crudpage.module */ "zkB0")).then(m => m.AntennaCRUDPagePageModule)
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-antenna-crudpage-antenna-crudpage-module */ "pages-antenna-crudpage-antenna-crudpage-module").then(__webpack_require__.bind(null, /*! ./pages/antenna-crudpage/antenna-crudpage.module */ "isVa")).then(m => m.AntennaCRUDPagePageModule)
     },
     {
         path: 'radio-set-crudpage',
-        loadChildren: () => __webpack_require__.e(/*! import() | radio-set-crudpage-radio-set-crudpage-module */ "radio-set-crudpage-radio-set-crudpage-module").then(__webpack_require__.bind(null, /*! ./radio-set-crudpage/radio-set-crudpage.module */ "jlob")).then(m => m.RadioSetCRUDPagePageModule)
+        loadChildren: () => __webpack_require__.e(/*! import() | pages-radio-set-crudpage-radio-set-crudpage-module */ "pages-radio-set-crudpage-radio-set-crudpage-module").then(__webpack_require__.bind(null, /*! ./pages/radio-set-crudpage/radio-set-crudpage.module */ "VN9C")).then(m => m.RadioSetCRUDPagePageModule)
     },
     {
         path: 'contact-crudpage',
-        loadChildren: () => Promise.all(/*! import() | contact-crudpage-contact-crudpage-module */[__webpack_require__.e("common"), __webpack_require__.e("contact-crudpage-contact-crudpage-module")]).then(__webpack_require__.bind(null, /*! ./contact-crudpage/contact-crudpage.module */ "iv0G")).then(m => m.ContactCRUDPagePageModule)
+        loadChildren: () => Promise.all(/*! import() | pages-contact-crudpage-contact-crudpage-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-contact-crudpage-contact-crudpage-module")]).then(__webpack_require__.bind(null, /*! ./pages/contact-crudpage/contact-crudpage.module */ "DucF")).then(m => m.ContactCRUDPagePageModule)
     },
     {
         path: 'pricecalculator',
-        loadChildren: () => Promise.all(/*! import() | pricecalculator-pricecalculator-module */[__webpack_require__.e("common"), __webpack_require__.e("pricecalculator-pricecalculator-module")]).then(__webpack_require__.bind(null, /*! ./pricecalculator/pricecalculator.module */ "zDN0")).then(m => m.PricecalculatorPageModule)
+        loadChildren: () => Promise.all(/*! import() | pages-pricecalculator-pricecalculator-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-pricecalculator-pricecalculator-module")]).then(__webpack_require__.bind(null, /*! ./pages/pricecalculator/pricecalculator.module */ "hVZD")).then(m => m.PricecalculatorPageModule)
     },
     {
         path: 'tab7',
-        loadChildren: () => Promise.all(/*! import() | tab7-tab7-module */[__webpack_require__.e("default~tab1-tab1-module~tab7-tab7-module"), __webpack_require__.e("default~tab2-tab2-module~tab7-tab7-module"), __webpack_require__.e("tab7-tab7-module")]).then(__webpack_require__.bind(null, /*! ./tab7/tab7.module */ "sFF5")).then(m => m.Tab7PageModule)
+        loadChildren: () => Promise.all(/*! import() | pages-tab7-tab7-module */[__webpack_require__.e("default~tab1-tab1-module~tab7-tab7-module"), __webpack_require__.e("default~tab2-tab2-module~tab7-tab7-module"), __webpack_require__.e("tab7-tab7-module")]).then(__webpack_require__.bind(null, /*! ./pages/tab7/tab7.module */ "haBL")).then(m => m.Tab7PageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {

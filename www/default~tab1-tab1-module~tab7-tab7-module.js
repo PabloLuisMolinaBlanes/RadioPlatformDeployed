@@ -1,22 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~tab1-tab1-module~tab7-tab7-module"],{
 
-/***/ "0ZEV":
-/*!********************************************************!*\
-  !*** ./src/app/antennaitem/antennaitem.component.scss ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("table td, table th {\n  padding: 20px;\n}\n\n@media (max-width: 766px) {\n  table td, table th {\n    padding: 10px;\n  }\n}\n\n@media (max-width: 450px) {\n  table td, table th {\n    padding: 0px;\n    margin-bottom: 5px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXGFudGVubmFpdGVtLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksYUFBQTtBQUNKOztBQUNBO0VBQ0k7SUFDSSxhQUFBO0VBRU47QUFDRjs7QUFBQTtFQUNJO0lBQ0ksWUFBQTtJQUNBLGtCQUFBO0VBRU47QUFDRiIsImZpbGUiOiJhbnRlbm5haXRlbS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxlIHRkLCB0YWJsZSB0aCB7XHJcbiAgICBwYWRkaW5nOiAyMHB4O1xyXG59XHJcbkBtZWRpYSAobWF4LXdpZHRoOiA3NjZweCkge1xyXG4gICAgdGFibGUgdGQsIHRhYmxlIHRoIHtcclxuICAgICAgICBwYWRkaW5nOiAxMHB4O1xyXG4gICAgfVxyXG59XHJcbkBtZWRpYSAobWF4LXdpZHRoOiA0NTBweCkge1xyXG4gICAgdGFibGUgdGQsIHRhYmxlIHRoIHtcclxuICAgICAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICAgICAgbWFyZ2luLWJvdHRvbTo1cHg7XHJcbiAgICB9XHJcbn0iXX0= */");
-
-/***/ }),
-
-/***/ "3gcO":
-/*!***************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/antenna-crudpage/antenna-crudpage.page.html ***!
-  \***************************************************************************************************/
+/***/ "ACPR":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/antenna-crudpage/antenna-crudpage.page.html ***!
+  \*********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -26,10 +13,49 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "9nsz":
-/*!***********************************************************!*\
-  !*** ./src/app/antenna-crudpage/antenna-crudpage.page.ts ***!
-  \***********************************************************/
+/***/ "EG6h":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/antennaitem/antennaitem.component.html ***!
+  \*********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<table>\n    <tr>\n        <th>Nombre</th>\n        <th>Tipo</th>\n        <th>Altura</th>\n        <th>Marca</th>\n        <th>Rango</th>\n        <th>Precio</th>\n    </tr>\n    <tr *ngFor=\"let antenna of antennae\">\n        <td>{{antenna.name}}</td>\n        <td>{{antenna.type}}</td>\n        <td>{{antenna.height}}</td>\n        <td>{{antenna.brand}}</td>\n        <td>{{antenna.range}}</td>\n        <td>{{antenna.price}}$</td>\n<ion-button *ngIf=\"!(isadmin)\" (click)=\"presentDeleteConfirmationUser(antenna)\" [attr.aria-label]=\"'Delete ' + antenna.name\"><ion-icon name=\"close-circle-outline\"></ion-icon></ion-button>\n<ion-button *ngIf=\"!(isadmin)\" (click)=\"presentModalModifyUser(antenna)\" [attr.aria-label]=\"'Modify ' + antenna.name\"><ion-icon name=\"brush\"></ion-icon></ion-button>\n<ion-button *ngIf=\"isadmin\" (click)=\"presentDeleteConfirmation(antenna)\" [attr.aria-label]=\"'Delete ' + antenna.name\"><ion-icon name=\"close-circle\"></ion-icon></ion-button>\n<ion-button *ngIf=\"isadmin\" (click)=\"presentModalModify(antenna)\" [attr.aria-label]=\"'Modify ' + antenna.name\"><ion-icon name=\"create\"></ion-icon></ion-button>\n<ion-checkbox *ngIf=\"!(isadmin)\" [(ngModel)]=\"antenna.isfavourite\" (ionChange)=\"sendFavouriteData(antenna)\"></ion-checkbox>\n    </tr>\n</table>\n");
+
+/***/ }),
+
+/***/ "JvP/":
+/*!************************************!*\
+  !*** ./src/app/classes/antenna.ts ***!
+  \************************************/
+/*! exports provided: Antenna */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Antenna", function() { return Antenna; });
+class Antenna {
+    constructor(type, name, range, height, brand, id, price) {
+        this.isfavourite = false;
+        this.id = id;
+        this.type = type;
+        this.name = name;
+        this.range = range;
+        this.height = height;
+        this.brand = brand;
+        this.price = price;
+    }
+}
+
+
+/***/ }),
+
+/***/ "PmsL":
+/*!*****************************************************************!*\
+  !*** ./src/app/pages/antenna-crudpage/antenna-crudpage.page.ts ***!
+  \*****************************************************************/
 /*! exports provided: AntennaCRUDPagePage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37,13 +63,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AntennaCRUDPagePage", function() { return AntennaCRUDPagePage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_antenna_crudpage_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./antenna-crudpage.page.html */ "3gcO");
-/* harmony import */ var _antenna_crudpage_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./antenna-crudpage.page.scss */ "LWxf");
+/* harmony import */ var _raw_loader_antenna_crudpage_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./antenna-crudpage.page.html */ "ACPR");
+/* harmony import */ var _antenna_crudpage_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./antenna-crudpage.page.scss */ "Qw9Q");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _antenna__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../antenna */ "9vUD");
-/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../node_modules/@angular/fire/auth */ "UbJi");
-/* harmony import */ var _firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../firebase-updater-and-setter.service */ "+Uwb");
-/* harmony import */ var _firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../firebase-obtainer.service */ "jmhE");
+/* harmony import */ var _classes_antenna__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../classes/antenna */ "JvP/");
+/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../node_modules/@angular/fire/auth */ "UbJi");
+/* harmony import */ var _services_firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/firebase-updater-and-setter.service */ "hsKi");
+/* harmony import */ var _services_firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/firebase-obtainer.service */ "JQOl");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
 
 
@@ -88,12 +114,12 @@ let AntennaCRUDPagePage = class AntennaCRUDPagePage {
     }
     submit() {
         if (this.id !== undefined) {
-            this.antenna = new _antenna__WEBPACK_IMPORTED_MODULE_4__["Antenna"](this.type, this.name, this.range, this.height, this.brand, this.id, this.price);
+            this.antenna = new _classes_antenna__WEBPACK_IMPORTED_MODULE_4__["Antenna"](this.type, this.name, this.range, this.height, this.brand, this.id, this.price);
             this.firebaseUpdaterAndSetter.updateAntenna(this.antenna);
         }
         else {
             this.id = "placeholder";
-            this.antenna = new _antenna__WEBPACK_IMPORTED_MODULE_4__["Antenna"](this.type, this.name, this.range, this.height, this.brand, this.id, this.price);
+            this.antenna = new _classes_antenna__WEBPACK_IMPORTED_MODULE_4__["Antenna"](this.type, this.name, this.range, this.height, this.brand, this.id, this.price);
             if (this.isadmin) {
                 this.firebaseUpdaterAndSetter.setAntennaAdmin(this.antenna);
             }
@@ -104,8 +130,8 @@ let AntennaCRUDPagePage = class AntennaCRUDPagePage {
     }
 };
 AntennaCRUDPagePage.ctorParameters = () => [
-    { type: _firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__["FirebaseUpdaterAndSetterService"] },
-    { type: _firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_7__["FirebaseObtainerService"] },
+    { type: _services_firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__["FirebaseUpdaterAndSetterService"] },
+    { type: _services_firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_7__["FirebaseObtainerService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ModalController"] },
     { type: _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuth"] }
 ];
@@ -131,36 +157,10 @@ AntennaCRUDPagePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "9vUD":
-/*!****************************!*\
-  !*** ./src/app/antenna.ts ***!
-  \****************************/
-/*! exports provided: Antenna */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Antenna", function() { return Antenna; });
-class Antenna {
-    constructor(type, name, range, height, brand, id, price) {
-        this.isfavourite = false;
-        this.id = id;
-        this.type = type;
-        this.name = name;
-        this.range = range;
-        this.height = height;
-        this.brand = brand;
-        this.price = price;
-    }
-}
-
-
-/***/ }),
-
-/***/ "LWxf":
-/*!*************************************************************!*\
-  !*** ./src/app/antenna-crudpage/antenna-crudpage.page.scss ***!
-  \*************************************************************/
+/***/ "Qw9Q":
+/*!*******************************************************************!*\
+  !*** ./src/app/pages/antenna-crudpage/antenna-crudpage.page.scss ***!
+  \*******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -170,10 +170,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "PmDG":
-/*!******************************************************!*\
-  !*** ./src/app/antennaitem/antennaitem.component.ts ***!
-  \******************************************************/
+/***/ "WZ0V":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/antennaitem/antennaitem.component.ts ***!
+  \*****************************************************************/
 /*! exports provided: AntennaitemComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -181,12 +181,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AntennaitemComponent", function() { return AntennaitemComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_antennaitem_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./antennaitem.component.html */ "vNZ4");
-/* harmony import */ var _antennaitem_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./antennaitem.component.scss */ "0ZEV");
+/* harmony import */ var _raw_loader_antennaitem_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./antennaitem.component.html */ "EG6h");
+/* harmony import */ var _antennaitem_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./antennaitem.component.scss */ "xo1U");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
-/* harmony import */ var _antenna_crudpage_antenna_crudpage_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../antenna-crudpage/antenna-crudpage.page */ "9nsz");
-/* harmony import */ var _firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../firebase-updater-and-setter.service */ "+Uwb");
+/* harmony import */ var _pages_antenna_crudpage_antenna_crudpage_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/antenna-crudpage/antenna-crudpage.page */ "PmsL");
+/* harmony import */ var _services_firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/firebase-updater-and-setter.service */ "hsKi");
 
 
 
@@ -214,7 +214,7 @@ let AntennaitemComponent = class AntennaitemComponent {
     presentModalModifyUser(antenna) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const modal = yield this.modalController.create({
-                component: _antenna_crudpage_antenna_crudpage_page__WEBPACK_IMPORTED_MODULE_5__["AntennaCRUDPagePage"],
+                component: _pages_antenna_crudpage_antenna_crudpage_page__WEBPACK_IMPORTED_MODULE_5__["AntennaCRUDPagePage"],
                 cssClass: 'placeholder',
                 componentProps: {
                     'id': antenna.id,
@@ -233,7 +233,7 @@ let AntennaitemComponent = class AntennaitemComponent {
     presentModalModify(antenna) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const modal = yield this.modalController.create({
-                component: _antenna_crudpage_antenna_crudpage_page__WEBPACK_IMPORTED_MODULE_5__["AntennaCRUDPagePage"],
+                component: _pages_antenna_crudpage_antenna_crudpage_page__WEBPACK_IMPORTED_MODULE_5__["AntennaCRUDPagePage"],
                 cssClass: 'placeholder',
                 componentProps: {
                     'id': antenna.id,
@@ -298,7 +298,7 @@ let AntennaitemComponent = class AntennaitemComponent {
 AntennaitemComponent.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"] },
-    { type: _firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__["FirebaseUpdaterAndSetterService"] }
+    { type: _services_firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__["FirebaseUpdaterAndSetterService"] }
 ];
 AntennaitemComponent.propDecorators = {
     antenna: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
@@ -318,16 +318,16 @@ AntennaitemComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
 
 /***/ }),
 
-/***/ "vNZ4":
-/*!**********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/antennaitem/antennaitem.component.html ***!
-  \**********************************************************************************************/
+/***/ "xo1U":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/antennaitem/antennaitem.component.scss ***!
+  \*******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<table>\n    <tr>\n        <th>Nombre</th>\n        <th>Tipo</th>\n        <th>Altura</th>\n        <th>Marca</th>\n        <th>Rango</th>\n        <th>Precio</th>\n    </tr>\n    <tr *ngFor=\"let antenna of antennae\">\n        <td>{{antenna.name}}</td>\n        <td>{{antenna.type}}</td>\n        <td>{{antenna.height}}</td>\n        <td>{{antenna.brand}}</td>\n        <td>{{antenna.range}}</td>\n        <td>{{antenna.price}}$</td>\n<ion-button *ngIf=\"!(isadmin)\" (click)=\"presentDeleteConfirmationUser(antenna)\" [attr.aria-label]=\"'Delete ' + antenna.name\"><ion-icon name=\"close-circle-outline\"></ion-icon></ion-button>\n<ion-button *ngIf=\"!(isadmin)\" (click)=\"presentModalModifyUser(antenna)\" [attr.aria-label]=\"'Modify ' + antenna.name\"><ion-icon name=\"brush\"></ion-icon></ion-button>\n<ion-button *ngIf=\"isadmin\" (click)=\"presentDeleteConfirmation(antenna)\" [attr.aria-label]=\"'Delete ' + antenna.name\"><ion-icon name=\"close-circle\"></ion-icon></ion-button>\n<ion-button *ngIf=\"isadmin\" (click)=\"presentModalModify(antenna)\" [attr.aria-label]=\"'Modify ' + antenna.name\"><ion-icon name=\"create\"></ion-icon></ion-button>\n<ion-checkbox *ngIf=\"!(isadmin)\" [(ngModel)]=\"antenna.isfavourite\" (ionChange)=\"sendFavouriteData(antenna)\"></ion-checkbox>\n    </tr>\n</table>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("table td, table th {\n  padding: 20px;\n}\n\n@media (max-width: 766px) {\n  table td, table th {\n    padding: 10px;\n  }\n}\n\n@media (max-width: 450px) {\n  table td, table th {\n    padding: 0px;\n    margin-bottom: 5px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxhbnRlbm5haXRlbS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGFBQUE7QUFDSjs7QUFDQTtFQUNJO0lBQ0ksYUFBQTtFQUVOO0FBQ0Y7O0FBQUE7RUFDSTtJQUNJLFlBQUE7SUFDQSxrQkFBQTtFQUVOO0FBQ0YiLCJmaWxlIjoiYW50ZW5uYWl0ZW0uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJ0YWJsZSB0ZCwgdGFibGUgdGgge1xyXG4gICAgcGFkZGluZzogMjBweDtcclxufVxyXG5AbWVkaWEgKG1heC13aWR0aDogNzY2cHgpIHtcclxuICAgIHRhYmxlIHRkLCB0YWJsZSB0aCB7XHJcbiAgICAgICAgcGFkZGluZzogMTBweDtcclxuICAgIH1cclxufVxyXG5AbWVkaWEgKG1heC13aWR0aDogNDUwcHgpIHtcclxuICAgIHRhYmxlIHRkLCB0YWJsZSB0aCB7XHJcbiAgICAgICAgcGFkZGluZzogMHB4O1xyXG4gICAgICAgIG1hcmdpbi1ib3R0b206NXB4O1xyXG4gICAgfVxyXG59Il19 */");
 
 /***/ })
 

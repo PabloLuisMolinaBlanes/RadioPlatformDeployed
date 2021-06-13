@@ -1,35 +1,88 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["tab6-tab6-module"],{
 
-/***/ "CCDU":
-/*!***************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/tab6/tab6.page.html ***!
-  \***************************************************************************/
-/*! exports provided: default */
+/***/ "5wSo":
+/*!*******************************************!*\
+  !*** ./src/app/pages/tab6/tab6.module.ts ***!
+  \*******************************************/
+/*! exports provided: Tab6PageModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Perfil</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Perfil</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <img [src]=\"imageUrl\">\n  <p>Country</p>\n  <ion-input [(ngModel)]=\"country\"></ion-input>\n  <p>Preferred frequency</p>\n  <ion-input [(ngModel)]=\"preferredFrequency\"></ion-input>\n  <p>Status</p>\n  <ion-select [(ngModel)]=\"status\">\n    <ion-select-option value=\"online\">Online</ion-select-option>\n    <ion-select-option value=\"offline\">Offline</ion-select-option>\n    <ion-select-option value=\"dont\">Don't disturb</ion-select-option>\n  </ion-select>\n  <p>Transmitting?</p>\n  <ion-select [(ngModel)]=\"transmitting\">\n    <ion-select-option value=\"yes\">Yes</ion-select-option>\n    <ion-select-option value=\"no\">No</ion-select-option>\n  </ion-select>\n  <p *ngIf=\"transmitting === 'yes'\">Frequency of transmission</p>\n  <ion-input [(ngModel)]=\"transmittingFrequency\" *ngIf=\"transmitting === 'yes'\"></ion-input>\n  <p>Update password</p>\n  <ion-input type=\"password\"></ion-input>\n  <p>Callsign</p>\n  <ion-input [(ngModel)]=\"callsign\"></ion-input>\n  <p>Profile picture</p>\n  <input type=\"file\" (change)=\"onFileSelected($event)\">\n  <ion-button (click)=\"setUser()\">Update info</ion-button>\n</ion-content>\n");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab6PageModule", function() { return Tab6PageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _tab6_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tab6-routing.module */ "Q2ie");
+/* harmony import */ var _tab6_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tab6.page */ "Rxtp");
+
+
+
+
+
+
+
+let Tab6PageModule = class Tab6PageModule {
+};
+Tab6PageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+            _tab6_routing_module__WEBPACK_IMPORTED_MODULE_5__["Tab6PageRoutingModule"]
+        ],
+        declarations: [_tab6_page__WEBPACK_IMPORTED_MODULE_6__["Tab6Page"]]
+    })
+], Tab6PageModule);
+
+
 
 /***/ }),
 
-/***/ "JT4w":
-/*!*************************************!*\
-  !*** ./src/app/tab6/tab6.page.scss ***!
-  \*************************************/
-/*! exports provided: default */
+/***/ "Q2ie":
+/*!***************************************************!*\
+  !*** ./src/app/pages/tab6/tab6-routing.module.ts ***!
+  \***************************************************/
+/*! exports provided: Tab6PageRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ0YWI2LnBhZ2Uuc2NzcyJ9 */");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab6PageRoutingModule", function() { return Tab6PageRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _tab6_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tab6.page */ "Rxtp");
+
+
+
+
+const routes = [
+    {
+        path: '',
+        component: _tab6_page__WEBPACK_IMPORTED_MODULE_3__["Tab6Page"]
+    }
+];
+let Tab6PageRoutingModule = class Tab6PageRoutingModule {
+};
+Tab6PageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+    })
+], Tab6PageRoutingModule);
+
+
 
 /***/ }),
 
-/***/ "Uy4h":
-/*!***********************************!*\
-  !*** ./src/app/tab6/tab6.page.ts ***!
-  \***********************************/
+/***/ "Rxtp":
+/*!*****************************************!*\
+  !*** ./src/app/pages/tab6/tab6.page.ts ***!
+  \*****************************************/
 /*! exports provided: Tab6Page */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37,15 +90,15 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab6Page", function() { return Tab6Page; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_tab6_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./tab6.page.html */ "CCDU");
-/* harmony import */ var _tab6_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tab6.page.scss */ "JT4w");
+/* harmony import */ var _raw_loader_tab6_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./tab6.page.html */ "imwA");
+/* harmony import */ var _tab6_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tab6.page.scss */ "XQd2");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../node_modules/@angular/fire/auth */ "UbJi");
-/* harmony import */ var _firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../firebase-updater-and-setter.service */ "+Uwb");
-/* harmony import */ var _firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../firebase-obtainer.service */ "jmhE");
+/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../node_modules/@angular/fire/auth */ "UbJi");
+/* harmony import */ var _services_firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/firebase-updater-and-setter.service */ "hsKi");
+/* harmony import */ var _services_firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/firebase-obtainer.service */ "JQOl");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ "jhN1");
 /* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/fire/storage */ "Vaw3");
-/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../user */ "5uJF");
+/* harmony import */ var _classes_user__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../classes/user */ "UxUN");
 
 
 
@@ -114,7 +167,7 @@ let Tab6Page = class Tab6Page {
             if (this.password !== undefined && this.password !== "") {
                 res.updatePassword(this.password);
             }
-            let thisuser = new _user__WEBPACK_IMPORTED_MODULE_9__["User"](this.country, this.preferredFrequency, res.email, this.status === 'undefined' ? null : this.status, this.transmitting === 'yes' ? true : false, res.uid, null, null, this.callsign, this.transmittingFrequency === undefined ? null : this.transmittingFrequency);
+            let thisuser = new _classes_user__WEBPACK_IMPORTED_MODULE_9__["User"](this.country, this.preferredFrequency, res.email, this.status === 'undefined' ? null : this.status, this.transmitting === 'yes' ? true : false, res.uid, null, null, this.callsign, this.transmittingFrequency === undefined ? null : this.transmittingFrequency);
             if (this.image === undefined) {
                 this.firebaseUpdaterAndSetter.updateUser(thisuser);
             }
@@ -130,8 +183,8 @@ let Tab6Page = class Tab6Page {
 Tab6Page.ctorParameters = () => [
     { type: _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuth"] },
     { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["ɵDomSanitizerImpl"] },
-    { type: _firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_6__["FirebaseObtainerService"] },
-    { type: _firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_5__["FirebaseUpdaterAndSetterService"] },
+    { type: _services_firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_6__["FirebaseObtainerService"] },
+    { type: _services_firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_5__["FirebaseUpdaterAndSetterService"] },
     { type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_8__["AngularFireStorage"] }
 ];
 Tab6Page.propDecorators = {
@@ -156,82 +209,29 @@ Tab6Page = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "ufJq":
-/*!*********************************************!*\
-  !*** ./src/app/tab6/tab6-routing.module.ts ***!
-  \*********************************************/
-/*! exports provided: Tab6PageRoutingModule */
+/***/ "XQd2":
+/*!*******************************************!*\
+  !*** ./src/app/pages/tab6/tab6.page.scss ***!
+  \*******************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab6PageRoutingModule", function() { return Tab6PageRoutingModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _tab6_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tab6.page */ "Uy4h");
-
-
-
-
-const routes = [
-    {
-        path: '',
-        component: _tab6_page__WEBPACK_IMPORTED_MODULE_3__["Tab6Page"]
-    }
-];
-let Tab6PageRoutingModule = class Tab6PageRoutingModule {
-};
-Tab6PageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
-    })
-], Tab6PageRoutingModule);
-
-
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ0YWI2LnBhZ2Uuc2NzcyJ9 */");
 
 /***/ }),
 
-/***/ "ufJr":
-/*!*************************************!*\
-  !*** ./src/app/tab6/tab6.module.ts ***!
-  \*************************************/
-/*! exports provided: Tab6PageModule */
+/***/ "imwA":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/tab6/tab6.page.html ***!
+  \*********************************************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab6PageModule", function() { return Tab6PageModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
-/* harmony import */ var _tab6_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tab6-routing.module */ "ufJq");
-/* harmony import */ var _tab6_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tab6.page */ "Uy4h");
-
-
-
-
-
-
-
-let Tab6PageModule = class Tab6PageModule {
-};
-Tab6PageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
-            _tab6_routing_module__WEBPACK_IMPORTED_MODULE_5__["Tab6PageRoutingModule"]
-        ],
-        declarations: [_tab6_page__WEBPACK_IMPORTED_MODULE_6__["Tab6Page"]]
-    })
-], Tab6PageModule);
-
-
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Perfil</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Perfil</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <img [src]=\"imageUrl\">\n  <p>Country</p>\n  <ion-input [(ngModel)]=\"country\"></ion-input>\n  <p>Preferred frequency</p>\n  <ion-input [(ngModel)]=\"preferredFrequency\"></ion-input>\n  <p>Status</p>\n  <ion-select [(ngModel)]=\"status\">\n    <ion-select-option value=\"online\">Online</ion-select-option>\n    <ion-select-option value=\"offline\">Offline</ion-select-option>\n    <ion-select-option value=\"dont\">Don't disturb</ion-select-option>\n  </ion-select>\n  <p>Transmitting?</p>\n  <ion-select [(ngModel)]=\"transmitting\">\n    <ion-select-option value=\"yes\">Yes</ion-select-option>\n    <ion-select-option value=\"no\">No</ion-select-option>\n  </ion-select>\n  <p *ngIf=\"transmitting === 'yes'\">Frequency of transmission</p>\n  <ion-input [(ngModel)]=\"transmittingFrequency\" *ngIf=\"transmitting === 'yes'\"></ion-input>\n  <p>Update password</p>\n  <ion-input type=\"password\"></ion-input>\n  <p>Callsign</p>\n  <ion-input [(ngModel)]=\"callsign\"></ion-input>\n  <p>Profile picture</p>\n  <input type=\"file\" (change)=\"onFileSelected($event)\">\n  <ion-button (click)=\"setUser()\">Update info</ion-button>\n</ion-content>\n");
 
 /***/ })
 

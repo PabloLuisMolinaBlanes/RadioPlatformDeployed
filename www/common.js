@@ -1,42 +1,28 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"],{
 
-/***/ "5uJF":
-/*!*************************!*\
-  !*** ./src/app/user.ts ***!
-  \*************************/
-/*! exports provided: User */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
-class User {
-    constructor(country, preferredFrequency, username, status, transmitting, id, password, profilepicture, callsign, transmittingFrequency) {
-        this.id = id;
-        this.country = country;
-        this.preferredFrequency = preferredFrequency;
-        this.username = username;
-        this.status = status;
-        this.transmitting = transmitting;
-        this.profilepicture = profilepicture;
-        this.callsign = callsign;
-        this.transmittingFrequency = transmittingFrequency;
-    }
-}
-
-
-/***/ }),
-
-/***/ "7+k1":
-/*!***********************************************************!*\
-  !*** ./src/app/pricecalculator/pricecalculator.page.scss ***!
-  \***********************************************************/
+/***/ "0X64":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/contact-crudpage/contact-crudpage.page.html ***!
+  \*********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("table td, table th {\n  padding: 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXHByaWNlY2FsY3VsYXRvci5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxhQUFBO0FBQ0oiLCJmaWxlIjoicHJpY2VjYWxjdWxhdG9yLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxlIHRkLCB0YWJsZSB0aCB7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>ContactCRUDPage</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <p>Frequency</p>\n<ion-input [(ngModel)]=\"frequency\"></ion-input>\n<p>Callsign</p>\n<ion-input [(ngModel)]=\"callsign\"></ion-input>\n<p>Location</p>\n<ion-input [(ngModel)]=\"location\"></ion-input>\n<p>Recording</p>\n<input type=\"file\" (change)=\"onFileSelected($event)\">\n<audio [src]=\"audioUrl\" controls ></audio>\n<ion-button (click)=\"submit()\" *ngIf=\"frequency\">Submit</ion-button>\n<ion-button (click)=\"dismiss()\">Cancel</ion-button>\n</ion-content>\n");
+
+/***/ }),
+
+/***/ "2hKB":
+/*!*******************************************************************!*\
+  !*** ./src/app/pages/contact-crudpage/contact-crudpage.page.scss ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjb250YWN0LWNydWRwYWdlLnBhZ2Uuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -93,19 +79,6 @@ const openURL = async (url, ev, direction, animation) => {
 
 
 
-
-/***/ }),
-
-/***/ "Flqv":
-/*!*************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pricecalculator/pricecalculator.page.html ***!
-  \*************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Price calculator</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-select (ionChange)=\"updateAntennaChosen()\" [(ngModel)]=\"antennaChosen\">\n    <ion-select-option *ngFor=\"let antenna of antennae\" [value]=\"antenna\">{{antenna.name}}</ion-select-option>\n  </ion-select>\n  <table>\n    <tr>\n        <th>Nombre</th>\n        <th>Tipo</th>\n        <th>Altura</th>\n        <th>Marca</th>\n        <th>Rango</th>\n        <th>Precio</th>\n        <th>Cantidad</th>\n    </tr>\n    <tr *ngFor=\"let antenna of antennaeChosen\">\n        <td>{{antenna.name}}</td>\n        <td>{{antenna.type}}</td>\n        <td>{{antenna.height}}</td>\n        <td>{{antenna.brand}}</td>\n        <td>{{antenna.range}}</td>\n        <td>{{antenna.price}}$</td>\n        <td><ion-input type=\"number\" [(ngModel)]=\"antennaeMultiplier\"  (ionChange)=\"updateAntennaMultiplier(antenna)\"></ion-input></td>\n        </tr>\n  </table>\n  <ion-select (ionChange)=\"updateEquipmentChosen()\" [(ngModel)]=\"radiosetChosen\">\n    <ion-select-option *ngFor=\"let radioset of equipment\"  [value]=\"radioset\" >{{radioset.name}}</ion-select-option>\n  </ion-select>\n  <table>\n    <tr>\n        <th>Nombre</th>\n        <th>Marca</th>\n        <th>Tipo</th>\n        <th>Amplitud</th>\n        <th>Precio</th>\n        <th>Cantidad</th>\n    </tr>\n    <tr *ngFor=\"let radioset of equipmentChosen\">\n        <td>{{radioset.name}}</td>\n        <td>{{radioset.brand}}</td>\n        <td>{{radioset.type}}</td>\n        <td>{{radioset.amplitude}}</td>\n        <td>{{radioset.price}}$</td>\n        <td><ion-input type=\"number\" [(ngModel)]=\"equipmentMultiplier\" (ionChange)=\"updateEquipmentMultiplier(radioset)\"></ion-input></td>\n    </tr>\n  </table>\n  <p>Total: {{total}}$</p>\n  <ion-button (click)=\"dismiss()\">Exit</ion-button>\n</ion-content>\n");
 
 /***/ }),
 
@@ -190,27 +163,139 @@ const createButtonActiveGesture = (el, isButton) => {
 
 /***/ }),
 
-/***/ "Lb6R":
-/*!****************************!*\
-  !*** ./src/app/contact.ts ***!
-  \****************************/
-/*! exports provided: Contact */
+/***/ "KL24":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/pricecalculator/pricecalculator.page.html ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Contact", function() { return Contact; });
-class Contact {
-    constructor(frequency, recording, location, callsign, coordinates, id, updated) {
-        this.frequency = frequency;
-        this.recording = recording;
-        this.callsign = callsign;
-        this.location = location;
-        this.coordinates = coordinates;
-        this.id = id;
-        this.updated = updated;
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Price calculator</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-select (ionChange)=\"updateAntennaChosen()\" [(ngModel)]=\"antennaChosen\">\n    <ion-select-option *ngFor=\"let antenna of antennae\" [value]=\"antenna\">{{antenna.name}}</ion-select-option>\n  </ion-select>\n  <table>\n    <tr>\n        <th>Nombre</th>\n        <th>Tipo</th>\n        <th>Altura</th>\n        <th>Marca</th>\n        <th>Rango</th>\n        <th>Precio</th>\n        <th>Cantidad</th>\n    </tr>\n    <tr *ngFor=\"let antenna of antennaeChosen\">\n        <td>{{antenna.name}}</td>\n        <td>{{antenna.type}}</td>\n        <td>{{antenna.height}}</td>\n        <td>{{antenna.brand}}</td>\n        <td>{{antenna.range}}</td>\n        <td>{{antenna.price}}$</td>\n        <td><ion-input type=\"number\" [(ngModel)]=\"antennaeMultiplier\"  (ionChange)=\"updateAntennaMultiplier(antenna)\"></ion-input></td>\n        </tr>\n  </table>\n  <ion-select (ionChange)=\"updateEquipmentChosen()\" [(ngModel)]=\"radiosetChosen\">\n    <ion-select-option *ngFor=\"let radioset of equipment\"  [value]=\"radioset\" >{{radioset.name}}</ion-select-option>\n  </ion-select>\n  <table>\n    <tr>\n        <th>Nombre</th>\n        <th>Marca</th>\n        <th>Tipo</th>\n        <th>Amplitud</th>\n        <th>Precio</th>\n        <th>Cantidad</th>\n    </tr>\n    <tr *ngFor=\"let radioset of equipmentChosen\">\n        <td>{{radioset.name}}</td>\n        <td>{{radioset.brand}}</td>\n        <td>{{radioset.type}}</td>\n        <td>{{radioset.amplitude}}</td>\n        <td>{{radioset.price}}$</td>\n        <td><ion-input type=\"number\" [(ngModel)]=\"equipmentMultiplier\" (ionChange)=\"updateEquipmentMultiplier(radioset)\"></ion-input></td>\n    </tr>\n  </table>\n  <p>Total: {{total}}$</p>\n  <ion-button (click)=\"dismiss()\">Exit</ion-button>\n</ion-content>\n");
+
+/***/ }),
+
+/***/ "OXqj":
+/*!*****************************************************************!*\
+  !*** ./src/app/pages/contact-crudpage/contact-crudpage.page.ts ***!
+  \*****************************************************************/
+/*! exports provided: ContactCRUDPagePage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactCRUDPagePage", function() { return ContactCRUDPagePage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _raw_loader_contact_crudpage_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./contact-crudpage.page.html */ "0X64");
+/* harmony import */ var _contact_crudpage_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./contact-crudpage.page.scss */ "2hKB");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _classes_contact__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../classes/contact */ "u2fE");
+/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../node_modules/@angular/fire/auth */ "UbJi");
+/* harmony import */ var _services_firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/firebase-updater-and-setter.service */ "hsKi");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ "jhN1");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic/storage */ "fwsW");
+
+
+
+
+
+
+
+
+
+
+let ContactCRUDPagePage = class ContactCRUDPagePage {
+    constructor(firebaseUpdaterAndSetter, afauth, sanitizer, modalController, store) {
+        this.firebaseUpdaterAndSetter = firebaseUpdaterAndSetter;
+        this.afauth = afauth;
+        this.sanitizer = sanitizer;
+        this.modalController = modalController;
+        this.store = store;
+        this.location = null;
+        this.coordinates = null;
+        this.callsign = null;
+        this.frequency = null;
+        this.recording = null;
+        this.audio = null;
     }
-}
+    ngOnInit() {
+        this.firebaseUpdaterAndSetter.testHTML();
+        if (this.recording !== null) {
+            this.audioUrl = this.recording;
+        }
+    }
+    dismiss() {
+        this.modalController.dismiss();
+    }
+    onFileSelected(event) {
+        this.afauth.currentUser.then((user) => {
+            const file = event.target.files[0];
+            file.arrayBuffer().then((result) => {
+                const blob = new Blob([new Uint8Array(result, 0, file.size)]);
+                const blobParts = [];
+                console.log(file);
+                blobParts.push(blob);
+                let renamedFile = new File(blobParts, user.uid, {
+                    'endings': "native",
+                    'lastModified': file.lastModified,
+                    'type': file.type
+                });
+                console.log(renamedFile.name);
+                if (renamedFile) {
+                    this.filename = renamedFile.name;
+                    this.audio = renamedFile;
+                    const url = URL.createObjectURL(renamedFile);
+                    console.log(url);
+                    const urlSan = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+                    this.audioUrl = urlSan;
+                    console.log(urlSan);
+                    console.log(renamedFile);
+                }
+            });
+        });
+    }
+    submit() {
+        if (this.id === undefined) {
+            console.log("Warning, id has been detected as undefined!");
+            this.id = "placeholder";
+            this.contact = new _classes_contact__WEBPACK_IMPORTED_MODULE_4__["Contact"](this.frequency, this.audio, this.location, this.callsign, null, this.id);
+            this.contact.number = "placeholder";
+            this.firebaseUpdaterAndSetter.setContact(this.contact, this.audio);
+        }
+        else {
+            this.contact = new _classes_contact__WEBPACK_IMPORTED_MODULE_4__["Contact"](this.frequency, this.audio, this.location, this.callsign, null, this.id, this.updated);
+            this.contact.number = this.number;
+            this.firebaseUpdaterAndSetter.updateContact(this.contact, this.audio);
+        }
+    }
+};
+ContactCRUDPagePage.ctorParameters = () => [
+    { type: _services_firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__["FirebaseUpdaterAndSetterService"] },
+    { type: _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuth"] },
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["ɵDomSanitizerImpl"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ModalController"] },
+    { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_9__["Storage"] }
+];
+ContactCRUDPagePage.propDecorators = {
+    location: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
+    coordinates: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
+    callsign: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
+    frequency: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
+    recording: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
+    id: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
+    updated: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
+    number: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }]
+};
+ContactCRUDPagePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: 'app-contact-crudpage',
+        template: _raw_loader_contact_crudpage_page_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        styles: [_contact_crudpage_page_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
+    })
+], ContactCRUDPagePage);
+
 
 
 /***/ }),
@@ -249,6 +334,33 @@ ExploreContainerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
     })
 ], ExploreContainerComponent);
 
+
+
+/***/ }),
+
+/***/ "UxUN":
+/*!*********************************!*\
+  !*** ./src/app/classes/user.ts ***!
+  \*********************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+class User {
+    constructor(country, preferredFrequency, username, status, transmitting, id, password, profilepicture, callsign, transmittingFrequency) {
+        this.id = id;
+        this.country = country;
+        this.preferredFrequency = preferredFrequency;
+        this.username = username;
+        this.status = status;
+        this.transmitting = transmitting;
+        this.profilepicture = profilepicture;
+        this.callsign = callsign;
+        this.transmittingFrequency = transmittingFrequency;
+    }
+}
 
 
 /***/ }),
@@ -303,16 +415,16 @@ const detachComponent = (delegate, element) => {
 
 /***/ }),
 
-/***/ "anWn":
-/*!***************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/contact-crudpage/contact-crudpage.page.html ***!
-  \***************************************************************************************************/
+/***/ "fkNG":
+/*!*****************************************************************!*\
+  !*** ./src/app/pages/pricecalculator/pricecalculator.page.scss ***!
+  \*****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>ContactCRUDPage</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <p>Frequency</p>\n<ion-input [(ngModel)]=\"frequency\"></ion-input>\n<p>Callsign</p>\n<ion-input [(ngModel)]=\"callsign\"></ion-input>\n<p>Location</p>\n<ion-input [(ngModel)]=\"location\"></ion-input>\n<p>Recording</p>\n<input type=\"file\" (change)=\"onFileSelected($event)\">\n<audio [src]=\"audioUrl\" controls ></audio>\n<ion-button (click)=\"submit()\" *ngIf=\"frequency\">Submit</ion-button>\n<ion-button (click)=\"dismiss()\">Cancel</ion-button>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("table td, table th {\n  padding: 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxwcmljZWNhbGN1bGF0b3IucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksYUFBQTtBQUNKIiwiZmlsZSI6InByaWNlY2FsY3VsYXRvci5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJ0YWJsZSB0ZCwgdGFibGUgdGgge1xyXG4gICAgcGFkZGluZzogMTBweDtcclxufSJdfQ== */");
 
 /***/ }),
 
@@ -453,10 +565,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "ktIm":
-/*!*********************************************************!*\
-  !*** ./src/app/pricecalculator/pricecalculator.page.ts ***!
-  \*********************************************************/
+/***/ "kT78":
+/*!***************************************************************!*\
+  !*** ./src/app/pages/pricecalculator/pricecalculator.page.ts ***!
+  \***************************************************************/
 /*! exports provided: PricecalculatorPage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -464,8 +576,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PricecalculatorPage", function() { return PricecalculatorPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_pricecalculator_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./pricecalculator.page.html */ "Flqv");
-/* harmony import */ var _pricecalculator_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pricecalculator.page.scss */ "7+k1");
+/* harmony import */ var _raw_loader_pricecalculator_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./pricecalculator.page.html */ "KL24");
+/* harmony import */ var _pricecalculator_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pricecalculator.page.scss */ "fkNG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/storage */ "fwsW");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
@@ -733,140 +845,28 @@ ExploreContainerComponentModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
 
 /***/ }),
 
-/***/ "r0zr":
-/*!***********************************************************!*\
-  !*** ./src/app/contact-crudpage/contact-crudpage.page.ts ***!
-  \***********************************************************/
-/*! exports provided: ContactCRUDPagePage */
+/***/ "u2fE":
+/*!************************************!*\
+  !*** ./src/app/classes/contact.ts ***!
+  \************************************/
+/*! exports provided: Contact */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactCRUDPagePage", function() { return ContactCRUDPagePage; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_contact_crudpage_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./contact-crudpage.page.html */ "anWn");
-/* harmony import */ var _contact_crudpage_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./contact-crudpage.page.scss */ "tLYR");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../contact */ "Lb6R");
-/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../node_modules/@angular/fire/auth */ "UbJi");
-/* harmony import */ var _firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../firebase-updater-and-setter.service */ "+Uwb");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ "jhN1");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
-/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic/storage */ "fwsW");
-
-
-
-
-
-
-
-
-
-
-let ContactCRUDPagePage = class ContactCRUDPagePage {
-    constructor(firebaseUpdaterAndSetter, afauth, sanitizer, modalController, store) {
-        this.firebaseUpdaterAndSetter = firebaseUpdaterAndSetter;
-        this.afauth = afauth;
-        this.sanitizer = sanitizer;
-        this.modalController = modalController;
-        this.store = store;
-        this.location = null;
-        this.coordinates = null;
-        this.callsign = null;
-        this.frequency = null;
-        this.recording = null;
-        this.audio = null;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Contact", function() { return Contact; });
+class Contact {
+    constructor(frequency, recording, location, callsign, coordinates, id, updated) {
+        this.frequency = frequency;
+        this.recording = recording;
+        this.callsign = callsign;
+        this.location = location;
+        this.coordinates = coordinates;
+        this.id = id;
+        this.updated = updated;
     }
-    ngOnInit() {
-        this.firebaseUpdaterAndSetter.testHTML();
-        if (this.recording !== null) {
-            this.audioUrl = this.recording;
-        }
-    }
-    dismiss() {
-        this.modalController.dismiss();
-    }
-    onFileSelected(event) {
-        this.afauth.currentUser.then((user) => {
-            const file = event.target.files[0];
-            file.arrayBuffer().then((result) => {
-                const blob = new Blob([new Uint8Array(result, 0, file.size)]);
-                const blobParts = [];
-                console.log(file);
-                blobParts.push(blob);
-                let renamedFile = new File(blobParts, user.uid, {
-                    'endings': "native",
-                    'lastModified': file.lastModified,
-                    'type': file.type
-                });
-                console.log(renamedFile.name);
-                if (renamedFile) {
-                    this.filename = renamedFile.name;
-                    this.audio = renamedFile;
-                    const url = URL.createObjectURL(renamedFile);
-                    console.log(url);
-                    const urlSan = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-                    this.audioUrl = urlSan;
-                    console.log(urlSan);
-                    console.log(renamedFile);
-                }
-            });
-        });
-    }
-    submit() {
-        if (this.id === undefined) {
-            console.log("Warning, id has been detected as undefined!");
-            this.id = "placeholder";
-            this.contact = new _contact__WEBPACK_IMPORTED_MODULE_4__["Contact"](this.frequency, this.audio, this.location, this.callsign, null, this.id);
-            this.contact.number = "placeholder";
-            this.firebaseUpdaterAndSetter.setContact(this.contact, this.audio);
-        }
-        else {
-            this.contact = new _contact__WEBPACK_IMPORTED_MODULE_4__["Contact"](this.frequency, this.audio, this.location, this.callsign, null, this.id, this.updated);
-            this.contact.number = this.number;
-            this.firebaseUpdaterAndSetter.updateContact(this.contact, this.audio);
-        }
-    }
-};
-ContactCRUDPagePage.ctorParameters = () => [
-    { type: _firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__["FirebaseUpdaterAndSetterService"] },
-    { type: _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuth"] },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["ɵDomSanitizerImpl"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ModalController"] },
-    { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_9__["Storage"] }
-];
-ContactCRUDPagePage.propDecorators = {
-    location: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
-    coordinates: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
-    callsign: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
-    frequency: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
-    recording: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
-    id: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
-    updated: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
-    number: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }]
-};
-ContactCRUDPagePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
-        selector: 'app-contact-crudpage',
-        template: _raw_loader_contact_crudpage_page_html__WEBPACK_IMPORTED_MODULE_1__["default"],
-        styles: [_contact_crudpage_page_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
-    })
-], ContactCRUDPagePage);
+}
 
-
-
-/***/ }),
-
-/***/ "tLYR":
-/*!*************************************************************!*\
-  !*** ./src/app/contact-crudpage/contact-crudpage.page.scss ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjb250YWN0LWNydWRwYWdlLnBhZ2Uuc2NzcyJ9 */");
 
 /***/ })
 

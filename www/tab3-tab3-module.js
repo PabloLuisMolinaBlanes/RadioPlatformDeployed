@@ -14072,10 +14072,123 @@
 
 /***/ }),
 
-/***/ "IqiF":
-/*!***********************************!*\
-  !*** ./src/app/tab3/tab3.page.ts ***!
-  \***********************************/
+/***/ "ADJJ":
+/*!***************************************************!*\
+  !*** ./src/app/pages/tab3/tab3-routing.module.ts ***!
+  \***************************************************/
+/*! exports provided: Tab3PageRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab3PageRoutingModule", function() { return Tab3PageRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _tab3_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tab3.page */ "iBx5");
+
+
+
+
+const routes = [
+    {
+        path: '',
+        component: _tab3_page__WEBPACK_IMPORTED_MODULE_3__["Tab3Page"],
+    }
+];
+let Tab3PageRoutingModule = class Tab3PageRoutingModule {
+};
+Tab3PageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+    })
+], Tab3PageRoutingModule);
+
+
+
+/***/ }),
+
+/***/ "Praz":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/tab3/tab3.page.html ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-title>\n      Contactos\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Contactos</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-item>\n    <ion-select  [(ngModel)]=\"country\" (ionChange)=\"updateArray()\" placeholder=\"País\">\n      <ion-select-option value=\"placeholder\">All places</ion-select-option>\n      <ion-select-option *ngFor=\"let contact of countries\" [value]=\"contact\">{{ contact}}</ion-select-option>\n    </ion-select>\n  </ion-item>\n  <ion-item>\n    <ion-select  [(ngModel)]=\"frequency\" (ionChange)=\"updateArray()\" placeholder=\"País\">\n      <ion-select-option value=\"placeholder\">All freqs</ion-select-option>\n      <ion-select-option *ngFor=\"let contact of frequencies\" [value]=\"contact\">{{ contact}}</ion-select-option>\n    </ion-select>\n  </ion-item>\n    <app-contactitem [contacts]=\"contactsVisible\"></app-contactitem>\n  <ion-button *ngIf=\"frequency === 'placeholder' && country === 'placeholder'\" (click)=\"presentModal()\">Add new</ion-button>\n  <div class=\"map-container\">\n    <div class=\"map-frame\">\n      <div id=\"map\" leaflet (leafletMapReady)=\"onMapReady($event)\"></div>\n    </div>\n  </div>\n</ion-content>\n");
+
+/***/ }),
+
+/***/ "XgaQ":
+/*!*******************************************!*\
+  !*** ./src/app/pages/tab3/tab3.module.ts ***!
+  \*******************************************/
+/*! exports provided: Tab3PageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab3PageModule", function() { return Tab3PageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _components_contactitem_contactitem_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/contactitem/contactitem.component */ "ncor");
+/* harmony import */ var _tab3_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./tab3.page */ "iBx5");
+/* harmony import */ var _explore_container_explore_container_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../explore-container/explore-container.module */ "qtYk");
+/* harmony import */ var _tab3_routing_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./tab3-routing.module */ "ADJJ");
+
+
+
+
+
+
+
+
+
+
+let Tab3PageModule = class Tab3PageModule {
+};
+Tab3PageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
+        imports: [
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["IonicModule"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_4__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
+            _explore_container_explore_container_module__WEBPACK_IMPORTED_MODULE_8__["ExploreContainerComponentModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild([{ path: '', component: _tab3_page__WEBPACK_IMPORTED_MODULE_7__["Tab3Page"] }]),
+            _tab3_routing_module__WEBPACK_IMPORTED_MODULE_9__["Tab3PageRoutingModule"]
+        ],
+        declarations: [_tab3_page__WEBPACK_IMPORTED_MODULE_7__["Tab3Page"], _components_contactitem_contactitem_component__WEBPACK_IMPORTED_MODULE_6__["ContactitemComponent"]]
+    })
+], Tab3PageModule);
+
+
+
+/***/ }),
+
+/***/ "YUva":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/contactitem/contactitem.component.scss ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("table td, table th {\n  padding: 20px;\n}\n\n@media (max-width: 766px) {\n  table td, table th {\n    padding: 10px;\n  }\n}\n\n@media (max-width: 450px) {\n  table td, table th {\n    padding: 0px;\n    margin-bottom: 5px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxjb250YWN0aXRlbS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGFBQUE7QUFDSjs7QUFDRTtFQUNFO0lBQ0ksYUFBQTtFQUVOO0FBQ0Y7O0FBQUE7RUFDRTtJQUNJLFlBQUE7SUFDQSxrQkFBQTtFQUVKO0FBQ0YiLCJmaWxlIjoiY29udGFjdGl0ZW0uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJ0YWJsZSB0ZCwgdGFibGUgdGgge1xyXG4gICAgcGFkZGluZzogMjBweDtcclxuICB9XHJcbiAgQG1lZGlhIChtYXgtd2lkdGg6IDc2NnB4KSB7XHJcbiAgICB0YWJsZSB0ZCwgdGFibGUgdGgge1xyXG4gICAgICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICB9XHJcbn1cclxuQG1lZGlhIChtYXgtd2lkdGg6IDQ1MHB4KSB7XHJcbiAgdGFibGUgdGQsIHRhYmxlIHRoIHtcclxuICAgICAgcGFkZGluZzogMHB4O1xyXG4gICAgICBtYXJnaW4tYm90dG9tOjVweDtcclxuICB9XHJcbn0iXX0= */");
+
+/***/ }),
+
+/***/ "iBx5":
+/*!*****************************************!*\
+  !*** ./src/app/pages/tab3/tab3.page.ts ***!
+  \*****************************************/
 /*! exports provided: Tab3Page */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -14083,17 +14196,17 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab3Page", function() { return Tab3Page; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_tab3_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./tab3.page.html */ "h1hx");
-/* harmony import */ var _tab3_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tab3.page.scss */ "nRCe");
+/* harmony import */ var _raw_loader_tab3_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./tab3.page.html */ "Praz");
+/* harmony import */ var _tab3_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tab3.page.scss */ "yxfH");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! leaflet */ "4R65");
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
-/* harmony import */ var _contact_crudpage_contact_crudpage_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../contact-crudpage/contact-crudpage.page */ "r0zr");
-/* harmony import */ var _firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../firebase-obtainer.service */ "jmhE");
+/* harmony import */ var _contact_crudpage_contact_crudpage_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../contact-crudpage/contact-crudpage.page */ "OXqj");
+/* harmony import */ var _services_firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/firebase-obtainer.service */ "JQOl");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser */ "jhN1");
-/* harmony import */ var _node_modules_angular_fire_database__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../node_modules/@angular/fire/database */ "sSZD");
-/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../node_modules/@angular/fire/auth */ "UbJi");
+/* harmony import */ var _node_modules_angular_fire_database__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../node_modules/@angular/fire/database */ "sSZD");
+/* harmony import */ var _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../node_modules/@angular/fire/auth */ "UbJi");
 /* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/fire/storage */ "Vaw3");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic/storage */ "fwsW");
 
@@ -14140,6 +14253,8 @@ let Tab3Page = class Tab3Page {
         this.frequency = "placeholder";
         this.country = "placeholder";
         this.counter = 0;
+        this.countries = [];
+        this.frequencies = [];
         this.filterContacts = function (contact) {
             let contactcountry = contact.location;
             let contactfrequency = contact.frequency;
@@ -14236,6 +14351,11 @@ let Tab3Page = class Tab3Page {
         this.auth.currentUser.then((user) => {
             this.auth.currentUser.then(user => {
                 this.afDatabase.database.ref("users/" + user.uid + "/contacts").on("child_added", function (childsnapshot) {
+                    const child = childsnapshot.val();
+                    this.countries.push(child.location);
+                    this.frequencies.push(child.frequency);
+                    this.countries = [...new Set(this.countries)];
+                    this.frequencies = [...new Set(this.frequencies)];
                     setTimeout(() => {
                         this.storage.ref(user.uid).listAll().subscribe(data => {
                             this.counter++;
@@ -14280,6 +14400,10 @@ let Tab3Page = class Tab3Page {
                 this.afDatabase.database.ref("users/" + user.uid + "/contacts").on("child_changed", function (childsnapshot) {
                     console.log("child changed... here we go");
                     const contact = childsnapshot.val();
+                    this.countries.push(contact.location);
+                    this.frequencies.push(contact.frequency);
+                    this.countries = [...new Set(this.countries)];
+                    this.frequencies = [...new Set(this.frequencies)];
                     this.contactsVisible.forEach(contact2 => {
                         if (contact2.id === "placeholder") {
                             contact2.id = contact.id;
@@ -14398,7 +14522,7 @@ let Tab3Page = class Tab3Page {
 };
 Tab3Page.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ModalController"] },
-    { type: _firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_7__["FirebaseObtainerService"] },
+    { type: _services_firebase_obtainer_service__WEBPACK_IMPORTED_MODULE_7__["FirebaseObtainerService"] },
     { type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_11__["AngularFireStorage"] },
     { type: _node_modules_angular_fire_auth__WEBPACK_IMPORTED_MODULE_10__["AngularFireAuth"] },
     { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["ɵDomSanitizerImpl"] },
@@ -14417,123 +14541,10 @@ Tab3Page = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "OcaV":
-/*!*********************************************!*\
-  !*** ./src/app/tab3/tab3-routing.module.ts ***!
-  \*********************************************/
-/*! exports provided: Tab3PageRoutingModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab3PageRoutingModule", function() { return Tab3PageRoutingModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _tab3_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tab3.page */ "IqiF");
-
-
-
-
-const routes = [
-    {
-        path: '',
-        component: _tab3_page__WEBPACK_IMPORTED_MODULE_3__["Tab3Page"],
-    }
-];
-let Tab3PageRoutingModule = class Tab3PageRoutingModule {
-};
-Tab3PageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })
-], Tab3PageRoutingModule);
-
-
-
-/***/ }),
-
-/***/ "SPUS":
-/*!**********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/contactitem/contactitem.component.html ***!
-  \**********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<table>\n    <tr>\n        <th>Frecuencia</th>\n        <th>Lugar</th>\n        <th>Signo de llamada</th>\n        <th>Grabación</th>\n    </tr>\n    <tr *ngFor=\"let contact of contacts\">\n        <td>{{contact.frequency}}</td>\n        <td>{{contact.location}}</td>\n        <td>{{contact.callsign}}</td>\n        <td><audio controls [src]=\"contact.recording\" [attr.aria-label]=\"'Recording of ' + contact.frequency\"></audio>\n<ion-button (click)=\"presentDeleteConfirmation(contact)\"  [attr.aria-label]=\"'Delete ' + contact.frequency\"><ion-icon name=\"close-circle-outline\"></ion-icon></ion-button>\n<ion-button (click)=\"presentModalModify(contact)\" [attr.aria-label]=\"'Modify ' + contact.frequency\"><ion-icon name=\"brush\"></ion-icon></ion-button>\n        </td>\n\n");
-
-/***/ }),
-
-/***/ "h1hx":
-/*!***************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/tab3/tab3.page.html ***!
-  \***************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-title>\n      Contactos\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Contactos</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-item>\n    <ion-select  [(ngModel)]=\"country\" (ionChange)=\"updateArray()\" placeholder=\"País\">\n      <ion-select-option value=\"placeholder\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let contact of contactsTotal\" [value]=\"contact.location\">{{ contact.location}}</ion-select-option>\n    </ion-select>\n  </ion-item>\n  <ion-item>\n    <ion-select  [(ngModel)]=\"frequency\" (ionChange)=\"updateArray()\" placeholder=\"País\">\n      <ion-select-option value=\"placeholder\">All</ion-select-option>\n      <ion-select-option *ngFor=\"let contact of contactsTotal\" [value]=\"contact.frequency\">{{ contact.frequency}}</ion-select-option>\n    </ion-select>\n  </ion-item>\n    <app-contactitem [contacts]=\"contactsVisible\"></app-contactitem>\n  <ion-button *ngIf=\"frequency === 'placeholder' && country === 'placeholder'\" (click)=\"presentModal()\">Add new</ion-button>\n  <div class=\"map-container\">\n    <div class=\"map-frame\">\n      <div id=\"map\" leaflet (leafletMapReady)=\"onMapReady($event)\"></div>\n    </div>\n  </div>\n</ion-content>\n");
-
-/***/ }),
-
-/***/ "k+ul":
-/*!*************************************!*\
-  !*** ./src/app/tab3/tab3.module.ts ***!
-  \*************************************/
-/*! exports provided: Tab3PageModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tab3PageModule", function() { return Tab3PageModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var _contactitem_contactitem_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../contactitem/contactitem.component */ "mWsC");
-/* harmony import */ var _tab3_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./tab3.page */ "IqiF");
-/* harmony import */ var _explore_container_explore_container_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../explore-container/explore-container.module */ "qtYk");
-/* harmony import */ var _tab3_routing_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./tab3-routing.module */ "OcaV");
-
-
-
-
-
-
-
-
-
-
-let Tab3PageModule = class Tab3PageModule {
-};
-Tab3PageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
-        imports: [
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["IonicModule"],
-            _angular_common__WEBPACK_IMPORTED_MODULE_4__["CommonModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
-            _explore_container_explore_container_module__WEBPACK_IMPORTED_MODULE_8__["ExploreContainerComponentModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild([{ path: '', component: _tab3_page__WEBPACK_IMPORTED_MODULE_7__["Tab3Page"] }]),
-            _tab3_routing_module__WEBPACK_IMPORTED_MODULE_9__["Tab3PageRoutingModule"]
-        ],
-        declarations: [_tab3_page__WEBPACK_IMPORTED_MODULE_7__["Tab3Page"], _contactitem_contactitem_component__WEBPACK_IMPORTED_MODULE_6__["ContactitemComponent"]]
-    })
-], Tab3PageModule);
-
-
-
-/***/ }),
-
-/***/ "mWsC":
-/*!******************************************************!*\
-  !*** ./src/app/contactitem/contactitem.component.ts ***!
-  \******************************************************/
+/***/ "ncor":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/contactitem/contactitem.component.ts ***!
+  \*****************************************************************/
 /*! exports provided: ContactitemComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -14541,12 +14552,12 @@ Tab3PageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactitemComponent", function() { return ContactitemComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_contactitem_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./contactitem.component.html */ "SPUS");
-/* harmony import */ var _contactitem_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./contactitem.component.scss */ "piLC");
+/* harmony import */ var _raw_loader_contactitem_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./contactitem.component.html */ "xdYz");
+/* harmony import */ var _contactitem_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./contactitem.component.scss */ "YUva");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
-/* harmony import */ var _contact_crudpage_contact_crudpage_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../contact-crudpage/contact-crudpage.page */ "r0zr");
-/* harmony import */ var _firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../firebase-updater-and-setter.service */ "+Uwb");
+/* harmony import */ var _pages_contact_crudpage_contact_crudpage_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../pages/contact-crudpage/contact-crudpage.page */ "OXqj");
+/* harmony import */ var _services_firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/firebase-updater-and-setter.service */ "hsKi");
 
 
 
@@ -14566,7 +14577,7 @@ let ContactitemComponent = class ContactitemComponent {
     presentModalModify(contact) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const modal = yield this.modalController.create({
-                component: _contact_crudpage_contact_crudpage_page__WEBPACK_IMPORTED_MODULE_5__["ContactCRUDPagePage"],
+                component: _pages_contact_crudpage_contact_crudpage_page__WEBPACK_IMPORTED_MODULE_5__["ContactCRUDPagePage"],
                 cssClass: 'placeholder',
                 componentProps: {
                     'frequency': contact.frequency,
@@ -14602,7 +14613,7 @@ let ContactitemComponent = class ContactitemComponent {
 ContactitemComponent.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"] },
-    { type: _firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__["FirebaseUpdaterAndSetterService"] }
+    { type: _services_firebase_updater_and_setter_service__WEBPACK_IMPORTED_MODULE_6__["FirebaseUpdaterAndSetterService"] }
 ];
 ContactitemComponent.propDecorators = {
     contact: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"] }],
@@ -14621,29 +14632,29 @@ ContactitemComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
 
 /***/ }),
 
-/***/ "nRCe":
-/*!*************************************!*\
-  !*** ./src/app/tab3/tab3.page.scss ***!
-  \*************************************/
+/***/ "xdYz":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/contactitem/contactitem.component.html ***!
+  \*********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".map-container {\n  position: relative;\n  margin: 30px;\n  height: 50%;\n}\n\n.map-frame {\n  border: 2px solid black;\n  height: 100%;\n}\n\n#map {\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXHRhYjMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtBQUNGOztBQUVBO0VBQ0UsdUJBQUE7RUFDQSxZQUFBO0FBQ0Y7O0FBRUE7RUFDRSxZQUFBO0FBQ0YiLCJmaWxlIjoidGFiMy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFwLWNvbnRhaW5lciB7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIG1hcmdpbjogMzBweDtcclxuICBoZWlnaHQ6NTAlO1xyXG59XHJcblxyXG4ubWFwLWZyYW1lIHtcclxuICBib3JkZXI6IDJweCBzb2xpZCBibGFjaztcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuXHJcbiNtYXAge1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("<table>\n    <tr>\n        <th>Frecuencia</th>\n        <th>Lugar</th>\n        <th>Signo de llamada</th>\n        <th>Grabación</th>\n    </tr>\n    <tr *ngFor=\"let contact of contacts\">\n        <td>{{contact.frequency}}</td>\n        <td>{{contact.location}}</td>\n        <td>{{contact.callsign}}</td>\n        <td><audio controls [src]=\"contact.recording\" [attr.aria-label]=\"'Recording of ' + contact.frequency\"></audio>\n<ion-button (click)=\"presentDeleteConfirmation(contact)\"  [attr.aria-label]=\"'Delete ' + contact.frequency\"><ion-icon name=\"close-circle-outline\"></ion-icon></ion-button>\n<ion-button (click)=\"presentModalModify(contact)\" [attr.aria-label]=\"'Modify ' + contact.frequency\"><ion-icon name=\"brush\"></ion-icon></ion-button>\n        </td>\n\n");
 
 /***/ }),
 
-/***/ "piLC":
-/*!********************************************************!*\
-  !*** ./src/app/contactitem/contactitem.component.scss ***!
-  \********************************************************/
+/***/ "yxfH":
+/*!*******************************************!*\
+  !*** ./src/app/pages/tab3/tab3.page.scss ***!
+  \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("table td, table th {\n  padding: 20px;\n}\n\n@media (max-width: 766px) {\n  table td, table th {\n    padding: 10px;\n  }\n}\n\n@media (max-width: 450px) {\n  table td, table th {\n    padding: 0px;\n    margin-bottom: 5px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXGNvbnRhY3RpdGVtLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksYUFBQTtBQUNKOztBQUNFO0VBQ0U7SUFDSSxhQUFBO0VBRU47QUFDRjs7QUFBQTtFQUNFO0lBQ0ksWUFBQTtJQUNBLGtCQUFBO0VBRUo7QUFDRiIsImZpbGUiOiJjb250YWN0aXRlbS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxlIHRkLCB0YWJsZSB0aCB7XHJcbiAgICBwYWRkaW5nOiAyMHB4O1xyXG4gIH1cclxuICBAbWVkaWEgKG1heC13aWR0aDogNzY2cHgpIHtcclxuICAgIHRhYmxlIHRkLCB0YWJsZSB0aCB7XHJcbiAgICAgICAgcGFkZGluZzogMTBweDtcclxuICAgIH1cclxufVxyXG5AbWVkaWEgKG1heC13aWR0aDogNDUwcHgpIHtcclxuICB0YWJsZSB0ZCwgdGFibGUgdGgge1xyXG4gICAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICAgIG1hcmdpbi1ib3R0b206NXB4O1xyXG4gIH1cclxufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".map-container {\n  position: relative;\n  margin: 30px;\n  height: 50%;\n}\n\n.map-frame {\n  border: 2px solid black;\n  height: 100%;\n}\n\n#map {\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFx0YWIzLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7QUFDRjs7QUFFQTtFQUNFLHVCQUFBO0VBQ0EsWUFBQTtBQUNGOztBQUVBO0VBQ0UsWUFBQTtBQUNGIiwiZmlsZSI6InRhYjMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1hcC1jb250YWluZXIge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBtYXJnaW46IDMwcHg7XHJcbiAgaGVpZ2h0OjUwJTtcclxufVxyXG5cclxuLm1hcC1mcmFtZSB7XHJcbiAgYm9yZGVyOiAycHggc29saWQgYmxhY2s7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcblxyXG4jbWFwIHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuIl19 */");
 
 /***/ })
 
