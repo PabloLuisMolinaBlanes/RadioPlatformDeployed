@@ -41,14 +41,14 @@
       <ion-item>
         <ion-select placeholder="Tipo" [(ngModel)]="antennatype" (ionChange)="updateArrayAntenna()">
           <ion-select-option value="">All types</ion-select-option>
-          <ion-select-option *ngFor="let antenna of antennatypes" [value]="antenna.type">{{antenna}}
+          <ion-select-option *ngFor="let antenna of antennatypes" [value]="antenna">{{antenna}}
           </ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-select placeholder="Altura" [(ngModel)]="antennaheight" (ionChange)="updateArrayAntenna()">
           <ion-select-option value="">All heights</ion-select-option>
-          <ion-select-option *ngFor="let antenna of antennaheights" [value]="antenna.height">{{antenna}}
+          <ion-select-option *ngFor="let antenna of antennaheights" [value]="antenna">{{antenna}}
           </ion-select-option>
         </ion-select>
       </ion-item>

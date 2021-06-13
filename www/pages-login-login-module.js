@@ -64,7 +64,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>Login</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"center\">\n    <img src=\"assets/modifiedlogoRadioPlatform.svg\">\n  </div>\n  <div class=\"centerion-input\">\n  <ion-input placeholder=\"Usuario/Signo de llamada\" [(ngModel)]=\"username\" type=\"text\"></ion-input>\n  </div>\n  <div class=\"centerion-input\">\n    <ion-input placeholder=\"Contraseña\" [(ngModel)]=\"password\" type=\"password\"></ion-input>\n  </div>\n  <ion-button class=\"centerbutton\" shape=\"round\" (click)=\"login()\">Entrar</ion-button>\n  <br>\n  <ion-button class=\"centerbutton\" shape=\"round\" (click)=\"register()\">Registrarse</ion-button>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Login</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <div class=\"center\">\r\n    <img src=\"assets/modifiedlogoRadioPlatform.svg\">\r\n  </div>\r\n  <div class=\"centerion-input\">\r\n  <ion-input placeholder=\"Usuario/Signo de llamada\" [(ngModel)]=\"username\" type=\"text\"></ion-input>\r\n  </div>\r\n  <div class=\"centerion-input\">\r\n    <ion-input placeholder=\"Contraseña\" [(ngModel)]=\"password\" type=\"password\"></ion-input>\r\n  </div>\r\n  <ion-button class=\"centerbutton\" shape=\"round\" (click)=\"login(username, password)\">Entrar</ion-button>\r\n  <br>\r\n  <ion-button class=\"centerbutton\" shape=\"round\" (click)=\"register()\">Registrarse</ion-button>\r\n</ion-content>\r\n");
 
 /***/ }),
 

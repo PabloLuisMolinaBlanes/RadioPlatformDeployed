@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-tabs>\n\n  <ion-tab-bar slot=\"top\">\n    <ion-tab-button tab=\"tab1\">\n      <ion-icon name=\"triangle\"></ion-icon>\n      <ion-label>Antenas</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab2\">\n      <ion-icon name=\"radio\"></ion-icon>\n      <ion-label>Radios</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab3\">\n      <ion-icon name=\"person\"></ion-icon>\n      <ion-label>Contactos</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab4\">\n      <ion-icon name=\"chatbubbles\"></ion-icon>\n      <ion-label>Chat</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab5\">\n      <ion-icon name=\"people\"></ion-icon>\n      <ion-label>Usuarios</ion-label>\n    </ion-tab-button>\n    \n    <ion-tab-button tab=\"tab6\">\n      <ion-icon name=\"person\"></ion-icon>\n      <ion-label>Perfil</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"tab7\" *ngIf=\"email === 'admin@example.com'\">\n      <ion-icon name=\"logo-angular\"></ion-icon>\n      <ion-label>Administracion</ion-label>\n    </ion-tab-button>\n  </ion-tab-bar>\n\n</ion-tabs>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-tabs>\r\n\r\n  <ion-tab-bar slot=\"top\">\r\n    <ion-tab-button tab=\"tab1\">\r\n      <ion-icon name=\"triangle\"></ion-icon>\r\n      <ion-label>Antenas</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab2\">\r\n      <ion-icon name=\"radio\"></ion-icon>\r\n      <ion-label>Radios</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab3\">\r\n      <ion-icon name=\"person\"></ion-icon>\r\n      <ion-label>Contactos</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab4\">\r\n      <ion-icon name=\"chatbubbles\"></ion-icon>\r\n      <ion-label>Chat</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab5\">\r\n      <ion-icon name=\"people\"></ion-icon>\r\n      <ion-label>Usuarios</ion-label>\r\n    </ion-tab-button>\r\n    \r\n    <ion-tab-button tab=\"tab6\">\r\n      <ion-icon name=\"person\"></ion-icon>\r\n      <ion-label>Perfil</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"tab7\" *ngIf=\"email === 'admin@example.com'\">\r\n      <ion-icon name=\"logo-angular\"></ion-icon>\r\n      <ion-label>Administracion</ion-label>\r\n    </ion-tab-button>\r\n  </ion-tab-bar>\r\n\r\n</ion-tabs>\r\n");
 
 /***/ }),
 
@@ -51,11 +51,11 @@ const routes = [
         children: [
             {
                 path: 'tab1',
-                loadChildren: () => Promise.all(/*! import() | tab1-tab1-module */[__webpack_require__.e("default~tab1-tab1-module~tab7-tab7-module"), __webpack_require__.e("common"), __webpack_require__.e("tab1-tab1-module")]).then(__webpack_require__.bind(null, /*! ../tab1/tab1.module */ "uMfO")).then(m => m.Tab1PageModule)
+                loadChildren: () => Promise.all(/*! import() | tab1-tab1-module */[__webpack_require__.e("default~tab1-tab1-module~tab2-tab2-module~tab7-tab7-module"), __webpack_require__.e("common"), __webpack_require__.e("tab1-tab1-module")]).then(__webpack_require__.bind(null, /*! ../tab1/tab1.module */ "uMfO")).then(m => m.Tab1PageModule)
             },
             {
                 path: 'tab2',
-                loadChildren: () => Promise.all(/*! import() | tab2-tab2-module */[__webpack_require__.e("default~tab2-tab2-module~tab7-tab7-module"), __webpack_require__.e("common"), __webpack_require__.e("tab2-tab2-module")]).then(__webpack_require__.bind(null, /*! ../tab2/tab2.module */ "HJ/b")).then(m => m.Tab2PageModule)
+                loadChildren: () => Promise.all(/*! import() | tab2-tab2-module */[__webpack_require__.e("default~tab1-tab1-module~tab2-tab2-module~tab7-tab7-module"), __webpack_require__.e("common"), __webpack_require__.e("tab2-tab2-module")]).then(__webpack_require__.bind(null, /*! ../tab2/tab2.module */ "HJ/b")).then(m => m.Tab2PageModule)
             },
             {
                 path: 'tab3',
@@ -75,7 +75,7 @@ const routes = [
             },
             {
                 path: 'tab7',
-                loadChildren: () => Promise.all(/*! import() | tab7-tab7-module */[__webpack_require__.e("default~tab1-tab1-module~tab7-tab7-module"), __webpack_require__.e("default~tab2-tab2-module~tab7-tab7-module"), __webpack_require__.e("tab7-tab7-module")]).then(__webpack_require__.bind(null, /*! ../tab7/tab7.module */ "haBL")).then(m => m.Tab7PageModule)
+                loadChildren: () => Promise.all(/*! import() | tab7-tab7-module */[__webpack_require__.e("default~tab1-tab1-module~tab2-tab2-module~tab7-tab7-module"), __webpack_require__.e("tab7-tab7-module")]).then(__webpack_require__.bind(null, /*! ../tab7/tab7.module */ "haBL")).then(m => m.Tab7PageModule)
             },
             {
                 path: '',

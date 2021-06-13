@@ -26,7 +26,7 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const environment = {
-    production: false,
+    production: true,
     firebase: {
         apiKey: "AIzaSyAXOiptizkyrxrUERjrUNq7jObWk2ms1oo",
         authDomain: "radioplatform-9cfc5.firebaseapp.com",
@@ -1136,7 +1136,7 @@ const routes = [
     },
     {
         path: 'tab7',
-        loadChildren: () => Promise.all(/*! import() | pages-tab7-tab7-module */[__webpack_require__.e("default~tab1-tab1-module~tab7-tab7-module"), __webpack_require__.e("default~tab2-tab2-module~tab7-tab7-module"), __webpack_require__.e("tab7-tab7-module")]).then(__webpack_require__.bind(null, /*! ./pages/tab7/tab7.module */ "haBL")).then(m => m.Tab7PageModule)
+        loadChildren: () => Promise.all(/*! import() | pages-tab7-tab7-module */[__webpack_require__.e("default~tab1-tab1-module~tab2-tab2-module~tab7-tab7-module"), __webpack_require__.e("tab7-tab7-module")]).then(__webpack_require__.bind(null, /*! ./pages/tab7/tab7.module */ "haBL")).then(m => m.Tab7PageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {

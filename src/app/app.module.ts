@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuth, AngularFireAuthModule} from '@angular/fire/auth';
+import {AntennaitemComponent} from './components/antennaitem/antennaitem.component';
+import {RadiosetitemComponent} from './components/radiosetitem/radiosetitem.component';
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import {environment} from '../environments/environment';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
