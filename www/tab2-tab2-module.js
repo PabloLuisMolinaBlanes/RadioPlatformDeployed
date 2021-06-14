@@ -99,6 +99,7 @@ let Tab2Page = class Tab2Page {
     ngOnInit() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.radiosetsVisible = this.radiosetsTotal;
+            this.storage.create();
             this.auth.currentUser.then(user => {
                 this.afDatabase.database.ref("users/" + user.uid + "/equipment").on("child_added", function (childsnapshot) {
                     this.radiosetsTotal.push(childsnapshot.val());
@@ -124,7 +125,6 @@ let Tab2Page = class Tab2Page {
                     this.brands = [...new Set(this.brands)];
                     this.types = [...new Set(this.types)];
                     this.amplitudes = [...new Set(this.amplitudes)];
-                    this.storage.set('antennae', this.antennaeTotal);
                     console.log("detected change");
                     this.radiosetsVisible.forEach(ant => {
                         console.log(ant);
@@ -150,7 +150,7 @@ let Tab2Page = class Tab2Page {
                             ant.id = child.id;
                         }
                     });
-                    this.storage.set('antennae', this.radiosetsTotal);
+                    this.storage.set('equipment', this.radiosetsTotal);
                 }, () => { console.log("error here"); }, this);
                 this.afDatabase.database.ref("users/" + user.uid + "/equipment").on("child_removed", function (childsnapshot) {
                     var child = childsnapshot.val();
@@ -167,7 +167,6 @@ let Tab2Page = class Tab2Page {
                             this.radiosetsTotal = this.radiosetsTotal.filter(antenna => antenna !== ant);
                         }
                     });
-                    this.storage.set('antennae', this.radiosetsTotal);
                 }, () => { console.log("error here"); }, this);
                 this.afDatabase.database.ref("users/" + user.uid + "/favouriteRadioSet").on("value", function (childsnapshot) {
                     this.favouriteRadioSet = childsnapshot.val();

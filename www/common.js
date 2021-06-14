@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>ContactCRUDPage</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <p>Frequency</p>\r\n<ion-input [(ngModel)]=\"frequency\"></ion-input>\r\n<p>Callsign</p>\r\n<ion-input [(ngModel)]=\"callsign\"></ion-input>\r\n<p>Location</p>\r\n<ion-input [(ngModel)]=\"location\"></ion-input>\r\n<p>Recording</p>\r\n<input type=\"file\" (change)=\"onFileSelected($event)\">\r\n<audio [src]=\"audioUrl\" controls ></audio>\r\n<ion-button (click)=\"submit()\" *ngIf=\"frequency\">Submit</ion-button>\r\n<ion-button (click)=\"dismiss()\">Cancel</ion-button>\r\n</ion-content>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>ContactCRUDPage</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <p>Frequency</p>\r\n<ion-input [(ngModel)]=\"frequency\"></ion-input>\r\n<p>Callsign</p>\r\n<ion-input [(ngModel)]=\"callsign\"></ion-input>\r\n<p>Location</p>\r\n<ion-input [(ngModel)]=\"location\"></ion-input>\r\n<p>Recording</p>\r\n<input type=\"file\" (change)=\"onFileSelected($event)\">\r\n<audio [src]=\"audioUrl\" controls ></audio>\r\n<ion-button (click)=\"submit()\" *ngIf=\"frequency\">Submit</ion-button>\r\n<ion-button (click)=\"dismiss()\">Exit</ion-button>\r\n</ion-content>\r\n");
 
 /***/ }),
 
@@ -172,7 +172,7 @@ const createButtonActiveGesture = (el, isButton) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Price calculator</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-select (ionChange)=\"updateAntennaChosen()\" [(ngModel)]=\"antennaChosen\">\r\n    <ion-select-option *ngFor=\"let antenna of antennae\" [value]=\"antenna\">{{antenna.name}}</ion-select-option>\r\n  </ion-select>\r\n  <table>\r\n    <tr>\r\n        <th>Nombre</th>\r\n        <th>Tipo</th>\r\n        <th>Altura</th>\r\n        <th>Marca</th>\r\n        <th>Rango</th>\r\n        <th>Precio</th>\r\n        <th>Cantidad</th>\r\n    </tr>\r\n    <tr *ngFor=\"let antenna of antennaeChosen\">\r\n        <td>{{antenna.name}}</td>\r\n        <td>{{antenna.type}}</td>\r\n        <td>{{antenna.height}}</td>\r\n        <td>{{antenna.brand}}</td>\r\n        <td>{{antenna.range}}</td>\r\n        <td>{{antenna.price}}$</td>\r\n        <td><ion-input type=\"number\" [(ngModel)]=\"antennaeMultiplier\"  (ionChange)=\"updateAntennaMultiplier(antenna)\"></ion-input></td>\r\n        </tr>\r\n  </table>\r\n  <ion-select (ionChange)=\"updateEquipmentChosen()\" [(ngModel)]=\"radiosetChosen\">\r\n    <ion-select-option *ngFor=\"let radioset of equipment\"  [value]=\"radioset\" >{{radioset.name}}</ion-select-option>\r\n  </ion-select>\r\n  <table>\r\n    <tr>\r\n        <th>Nombre</th>\r\n        <th>Marca</th>\r\n        <th>Tipo</th>\r\n        <th>Amplitud</th>\r\n        <th>Precio</th>\r\n        <th>Cantidad</th>\r\n    </tr>\r\n    <tr *ngFor=\"let radioset of equipmentChosen\">\r\n        <td>{{radioset.name}}</td>\r\n        <td>{{radioset.brand}}</td>\r\n        <td>{{radioset.type}}</td>\r\n        <td>{{radioset.amplitude}}</td>\r\n        <td>{{radioset.price}}$</td>\r\n        <td><ion-input type=\"number\" [(ngModel)]=\"equipmentMultiplier\" (ionChange)=\"updateEquipmentMultiplier(radioset)\"></ion-input></td>\r\n    </tr>\r\n  </table>\r\n  <p>Total: {{total}}$</p>\r\n  <ion-button (click)=\"dismiss()\">Exit</ion-button>\r\n</ion-content>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Price calculator</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-select (ionChange)=\"updateAntennaChosen()\" [(ngModel)]=\"antennaChosen\">\r\n    <ion-select-option *ngFor=\"let antenna of antennae\" [value]=\"antenna\">{{antenna.name}}</ion-select-option>\r\n  </ion-select>\r\n  <table>\r\n    <tr>\r\n        <th>Nombre</th>\r\n        <th>Tipo</th>\r\n        <th>Altura</th>\r\n        <th>Marca</th>\r\n        <th>Rango</th>\r\n        <th>Precio</th>\r\n        <th>Cantidad</th>\r\n    </tr>\r\n    <tr *ngFor=\"let antenna of antennaeChosen\">\r\n        <td>{{antenna.name}}</td>\r\n        <td>{{antenna.type}}</td>\r\n        <td>{{antenna.height}}</td>\r\n        <td>{{antenna.brand}}</td>\r\n        <td>{{antenna.range}}</td>\r\n        <td>{{antenna.price}}$</td>\r\n        <td><ion-input type=\"number\" [(ngModel)]=\"antenna.multiplier\"  (ionChange)=\"updateAntennaMultiplier(antenna)\"></ion-input></td>\r\n        </tr>\r\n  </table>\r\n  <ion-select (ionChange)=\"updateEquipmentChosen()\" [(ngModel)]=\"radiosetChosen\">\r\n    <ion-select-option *ngFor=\"let radioset of equipment\"  [value]=\"radioset\" >{{radioset.name}}</ion-select-option>\r\n  </ion-select>\r\n  <table>\r\n    <tr>\r\n        <th>Nombre</th>\r\n        <th>Marca</th>\r\n        <th>Tipo</th>\r\n        <th>Amplitud</th>\r\n        <th>Precio</th>\r\n        <th>Cantidad</th>\r\n    </tr>\r\n    <tr *ngFor=\"let radioset of equipmentChosen\">\r\n        <td>{{radioset.name}}</td>\r\n        <td>{{radioset.brand}}</td>\r\n        <td>{{radioset.type}}</td>\r\n        <td>{{radioset.amplitude}}</td>\r\n        <td>{{radioset.price}}$</td>\r\n        <td><ion-input type=\"number\" [(ngModel)]=\"radioset.multiplier\" (ionChange)=\"updateEquipmentMultiplier(radioset)\"></ion-input></td>\r\n    </tr>\r\n  </table>\r\n  <p>Total: {{total}}$</p>\r\n  <ion-button (click)=\"dismiss()\">Exit</ion-button>\r\n</ion-content>\r\n");
 
 /***/ }),
 
@@ -615,19 +615,9 @@ let PricecalculatorPage = class PricecalculatorPage {
         this.calculateTotal();
     }
     updateAntennaMultiplier(antenna) {
-        this.antennae.forEach(a => {
-            if (a.id === antenna.id) {
-                a.multiplier = this.antennaeMultiplier;
-            }
-        });
         this.calculateTotal();
     }
     updateEquipmentMultiplier(equipment) {
-        this.equipment.forEach(e => {
-            if (e.name === equipment.name) {
-                e.multiplier = this.equipmentMultiplier;
-            }
-        });
         this.calculateTotal();
     }
     updateEquipmentChosen() {

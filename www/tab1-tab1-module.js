@@ -75,6 +75,8 @@ let Tab1Page = class Tab1Page {
     ngOnInit() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.antennaeVisible = this.antennaeTotal;
+            this.storage.create();
+            this.storage.set('antennae', this.antennaeTotal);
             this.auth.currentUser.then(user => {
                 this.afDatabase.database.ref("users/" + user.uid + "/antennae").on("child_added", function (childsnapshot) {
                     this.antennaeTotal.push(childsnapshot.val());
