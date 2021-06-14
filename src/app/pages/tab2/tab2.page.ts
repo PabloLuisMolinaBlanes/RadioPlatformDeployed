@@ -30,6 +30,7 @@ isadmin: boolean = false;
   constructor(private firebaseObtainerService: FirebaseObtainerService, public modalController: ModalController, public storage: Storage,public afDatabase: AngularFireDatabase, public auth: AngularFireAuth) {}
   async ngOnInit() {
     this.radiosetsVisible = this.radiosetsTotal;
+    this.storage.create();
     this.auth.currentUser.then(user => {
         this.afDatabase.database.ref("users/"+user.uid+"/equipment").on("child_added", function (childsnapshot) {
           this.radiosetsTotal.push(childsnapshot.val() as unknown as RadioSet);
@@ -55,7 +56,6 @@ isadmin: boolean = false;
           this.brands = [...new Set(this.brands)];
           this.types = [...new Set(this.types)];
           this.amplitudes = [...new Set(this.amplitudes)];
-          this.storage.set('antennae', this.antennaeTotal);
           console.log("detected change");
           this.radiosetsVisible.forEach(ant => {
             console.log(ant);
@@ -81,7 +81,7 @@ isadmin: boolean = false;
               ant.id = child.id;
             }
           });
-          this.storage.set('antennae', this.radiosetsTotal);
+          this.storage.set('equipment', this.radiosetsTotal);
         }, () => {console.log("error here")}, this);
         this.afDatabase.database.ref("users/"+user.uid+"/equipment").on("child_removed", function (childsnapshot) {
           var child = childsnapshot.val() as unknown as RadioSet
@@ -98,7 +98,6 @@ isadmin: boolean = false;
               this.radiosetsTotal = this.radiosetsTotal.filter(antenna => antenna !== ant);
             }
           });
-          this.storage.set('antennae', this.radiosetsTotal);
         }, () => {console.log("error here")}, this);
         this.afDatabase.database.ref("users/"+user.uid+"/favouriteRadioSet").on("value", function (childsnapshot) {
           this.favouriteRadioSet = childsnapshot.val() as unknown as string;
