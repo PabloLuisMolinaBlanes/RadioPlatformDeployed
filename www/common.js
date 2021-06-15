@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>ContactCRUDPage</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <p>Frequency</p>\r\n<ion-input [(ngModel)]=\"frequency\"></ion-input>\r\n<p>Callsign</p>\r\n<ion-input [(ngModel)]=\"callsign\"></ion-input>\r\n<p>Location</p>\r\n<ion-input [(ngModel)]=\"location\"></ion-input>\r\n<p>Recording</p>\r\n<input type=\"file\" (change)=\"onFileSelected($event)\">\r\n<audio [src]=\"audioUrl\" controls ></audio>\r\n<ion-button (click)=\"submit()\" *ngIf=\"frequency\">Submit</ion-button>\r\n<ion-button (click)=\"dismiss()\">Exit</ion-button>\r\n</ion-content>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>ContactCRUDPage</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <p>Frequency (mandatory)</p>\r\n<ion-input [(ngModel)]=\"frequency\"></ion-input>\r\n<p>Callsign</p>\r\n<ion-input [(ngModel)]=\"callsign\"></ion-input>\r\n<p>Location</p>\r\n<ion-input [(ngModel)]=\"location\"></ion-input>\r\n<p>Recording</p>\r\n<input type=\"file\" (change)=\"onFileSelected($event)\">\r\n<audio [src]=\"audioUrl\" controls ></audio>\r\n<ion-button (click)=\"submit()\" *ngIf=\"frequency\">Submit</ion-button>\r\n<ion-button (click)=\"dismiss()\">Exit</ion-button>\r\n</ion-content>\r\n");
 
 /***/ }),
 
