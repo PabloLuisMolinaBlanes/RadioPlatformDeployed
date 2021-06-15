@@ -752,6 +752,70 @@ let FirebaseUpdaterAndSetterService = class FirebaseUpdaterAndSetterService {
     }
     updateUser(user) {
         if (user.callsign !== null && user.callsign !== undefined) {
+            this.afDatabase.database.ref('callsigns/').get().then(res => {
+                res.forEach(r => {
+                    if (r.val() === user.username && r.key !== user.callsign) {
+                        this.afDatabase.database.ref('callsigns/' + r.key).remove();
+                    }
+                });
+            });
+            this.afDatabase.database.ref('callsigns/' + user.callsign).get().then((result => {
+                console.log(result.val());
+                console.log(user.callsign);
+                if (result !== null) {
+                    if (result.key !== undefined && result.val() !== user.username && result.val() !== null) {
+                        this.alertCtrl.create({
+                            message: "Error, this callsign already exists for another user, please change it in case you want to log in.",
+                            buttons: [{
+                                    text: "OK",
+                                    role: 'ok'
+                                }]
+                        }).then(a => {
+                            a.present();
+                            user.callsign = null;
+                        });
+                    }
+                    else {
+                        this.afDatabase.database.ref('callsigns/' + user.callsign).set(user.username).then(c => {
+                        });
+                    }
+                }
+                else {
+                    this.afDatabase.database.ref('callsigns/').get().then(res => {
+                        res.forEach(r => {
+                            if (r.val() === user.username) {
+                                this.afDatabase.database.ref('callsigns/' + r.key).remove();
+                            }
+                        });
+                    });
+                    this.afDatabase.database.ref('callsigns/' + user.callsign).set(user.username).then(c => { });
+                }
+            }));
+        }
+        this.afDatabase.database.ref('users/' + user.id).update({
+            'preferredFrequency': user.preferredFrequency,
+            'status': user.status,
+            'transmitting': user.transmitting,
+            'transmittingFrequency': user.transmittingFrequency,
+            'callsign': user.callsign
+        });
+    }
+    updateUserAndPhoto(user) {
+        if (user.callsign !== null && user.callsign !== undefined) {
+            this.afDatabase.database.ref('callsigns/').get().then(res => {
+                res.forEach(r => {
+                    if (r.val() === user.username && r.key !== user.callsign) {
+                        this.afDatabase.database.ref('callsigns/' + r.key).remove();
+                    }
+                });
+            });
+            this.afDatabase.database.ref('callsigns/').get().then(res => {
+                res.forEach(r => {
+                    if (r.val() === user.username) {
+                        this.afDatabase.database.ref('callsigns/' + r.key).remove();
+                    }
+                });
+            });
             this.afDatabase.database.ref('callsigns/' + user.callsign).get().then((result => {
                 console.log(result.val());
                 console.log(user.callsign);
@@ -778,19 +842,12 @@ let FirebaseUpdaterAndSetterService = class FirebaseUpdaterAndSetterService {
                 }
             }));
         }
-        this.afDatabase.database.ref('users/' + user.id).update({
+        return this.afDatabase.database.ref('users/' + user.id).update({
             'preferredFrequency': user.preferredFrequency,
             'status': user.status,
             'transmitting': user.transmitting,
             'transmittingFrequency': user.transmittingFrequency,
             'callsign': user.callsign
-        });
-    }
-    updateUserAndPhoto(user) {
-        return this.afDatabase.database.ref('users/' + user.id).update({
-            'preferredFrequency': user.preferredFrequency,
-            'status': user.status,
-            'transmitting': user.transmitting,
         });
     }
     updateAntenna(antenna) {
