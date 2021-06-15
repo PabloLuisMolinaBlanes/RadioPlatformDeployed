@@ -754,7 +754,7 @@ let FirebaseUpdaterAndSetterService = class FirebaseUpdaterAndSetterService {
         if (user.callsign !== null && user.callsign !== undefined) {
             this.afDatabase.database.ref('callsigns/').get().then(res => {
                 res.forEach(r => {
-                    if (r.val() === user.username && r.key !== user.callsign) {
+                    if (r.val() === user.username && r.key !== user.callsign && user.callsign !== null) {
                         this.afDatabase.database.ref('callsigns/' + r.key).remove();
                     }
                 });
@@ -772,7 +772,6 @@ let FirebaseUpdaterAndSetterService = class FirebaseUpdaterAndSetterService {
                                 }]
                         }).then(a => {
                             a.present();
-                            user.callsign = null;
                         });
                     }
                     else {
