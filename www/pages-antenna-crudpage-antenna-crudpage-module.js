@@ -78,6 +78,7 @@ let AntennaCRUDPagePage = class AntennaCRUDPagePage {
         this.range = null;
         this.height = null;
         this.brand = null;
+        this.price = null;
         this.antennaeTotal = [];
     }
     ngOnInit() {
