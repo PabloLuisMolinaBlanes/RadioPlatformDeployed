@@ -67,7 +67,7 @@ let RadioSetCRUDPagePage = class RadioSetCRUDPagePage {
         this.amplitude = this.equipment.amplitude;
         this.brand = this.equipment.brand;
         this.id = this.equipment.id;
-        this.price = this.equipment.price;
+        this.price = this.equipment.price === undefined ? null : this.equipment.price;
     }
     dismiss() {
         this.modalController.dismiss();
