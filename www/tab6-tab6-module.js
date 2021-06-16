@@ -117,6 +117,12 @@ let Tab6Page = class Tab6Page {
         this.firebaseUpdaterAndSetter = firebaseUpdaterAndSetter;
         this.firestore = firestore;
         this.password = undefined;
+        this.status = null;
+        this.transmitting = null;
+        this.callsign = null;
+        this.country = null;
+        this.preferredFrequency = null;
+        this.transmittingFrequency = null;
     }
     ngOnInit() {
         this.afauth.currentUser.then((user) => {
