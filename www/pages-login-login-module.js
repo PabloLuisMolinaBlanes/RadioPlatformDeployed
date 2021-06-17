@@ -140,60 +140,34 @@ let LoginPage = class LoginPage {
     ngOnInit() {
         this.testResult = "test to be done";
     }
+    showError() {
+        let alert = this.alertCtrl.create({
+            message: 'Name or password are incorrect',
+            buttons: [{
+                    text: 'Ok',
+                    role: 'cancel'
+                }
+            ]
+        }).then(a => {
+            a.present();
+        });
+    }
     login(user, password) {
         return new Promise((resolve, reject) => {
             this.afauth.signInWithEmailAndPassword(this.username, this.password).then(res => { this.router.navigateForward("/tabs"); }, err => {
                 if (this.username.indexOf("@") !== -1) {
-                    let alert = this.alertCtrl.create({
-                        message: 'Name or password are incorrect',
-                        buttons: [{
-                                text: 'Ok',
-                                role: 'cancel'
-                            }
-                        ]
-                    }).then(a => {
-                        a.present();
-                    });
+                    this.showError();
                 }
                 else {
                     this.afDatabase.database.ref('callsigns/' + this.username).get().then(u => {
                         if (u.val() === null) {
-                            let alert = this.alertCtrl.create({
-                                message: 'Name or password are incorrect',
-                                buttons: [{
-                                        text: 'Ok',
-                                        role: 'cancel'
-                                    }
-                                ]
-                            }).then(a => {
-                                a.present();
-                            });
+                            this.showError();
                         }
                         else {
-                            this.afauth.signInWithEmailAndPassword(u.val(), this.password).then(res => { this.router.navigateForward("/tabs"); }, err => {
-                                let alert = this.alertCtrl.create({
-                                    message: 'Name or password are incorrect',
-                                    buttons: [{
-                                            text: 'Ok',
-                                            role: 'cancel'
-                                        }
-                                    ]
-                                }).then(a => {
-                                    a.present();
-                                });
-                            });
+                            this.afauth.signInWithEmailAndPassword(u.val(), this.password).then(res => { this.router.navigateForward("/tabs"); }, err => { this.showError(); });
                         }
                     }).catch(err => {
-                        let alert = this.alertCtrl.create({
-                            message: 'Name or password are incorrect',
-                            buttons: [{
-                                    text: 'Ok',
-                                    role: 'cancel'
-                                }
-                            ]
-                        }).then(a => {
-                            a.present();
-                        });
+                        this.showError();
                     });
                 }
             });
