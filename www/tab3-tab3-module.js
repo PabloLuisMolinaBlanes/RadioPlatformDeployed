@@ -14481,7 +14481,7 @@ let Tab3Page = class Tab3Page {
                                 console.log("finished 2");
                             }
                         });
-                    }, 5000);
+                    }, 6000);
                 }, () => { console.log("error here"); }, this);
             });
         });
