@@ -14321,27 +14321,6 @@ let Tab3Page = class Tab3Page {
             contactsFound['' + this.contactsVisible[i].location + "_found"] = 1;
         }
     }
-    checkExistingPopups(contact) {
-        var found = false;
-        this.contactsTotal.forEach(contact2 => {
-            if (contact.location === contact2.location && contact.id !== contact2.id) {
-                found = true;
-                var index = this.contactsTotal.findIndex((contact3) => contact3.id === contact2.id);
-                console.log(index);
-                this.markers[index].bindPopup(this.markers[index].getPopup().getContent() + ` | ` + `<div>Frecuencia: ${contact.frequency}</div>` + `<div>Localización: ${contact.location}</div>` + `<div>Signo de llamada: ${contact.callsign}</div>`);
-            }
-        });
-        if (!(found)) {
-            if (contact.coordinates !== undefined) {
-                const lat = contact.coordinates.substr(0, contact.coordinates.search(","));
-                const lon = contact.coordinates.substr(contact.coordinates.search(",") + 1, contact.coordinates.length);
-                const marker = leaflet__WEBPACK_IMPORTED_MODULE_4__["marker"]([lat, lon]);
-                this.markers.push(marker);
-                marker.bindPopup(`<div>Frecuencia: ${contact.frequency}</div>` + `<div>Localización: ${contact.location}</div>` + `<div>Signo de llamada: ${contact.callsign}</div>`);
-                marker.addTo(this.map);
-            }
-        }
-    }
     ngAfterViewChecked() {
         this.map.invalidateSize();
     }
